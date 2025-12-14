@@ -3,600 +3,748 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VitaWell.Co | The Life Upgrade Formula</title>
+        <title>The Life Upgrade Formula: Financial Health & Personal Wellness Blueprint - VitaWell.Co</title>
+        <!-- SEO Meta Tags -->
+        <meta name="description" content="Unlock the FREE Life Upgrade Formula. Discover the proven 90-day system for financial clarity, superior health, and personal growth. Get your ultimate wellness and wealth blueprint today!">
+        <meta name="keywords" content="Life Upgrade Formula, Financial Health, Personal Wellness, VitaWell, Wealth Blueprint, Health Blueprint, Financial Clarity, Personal Growth, Residual Income, Wellness System, 90-day system, Free Formula, Upgrade Formula, Financial Blueprint, Health Upgrade, Passive Income, Success System, Benjamin Ainamani">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="The Life Upgrade Formula: Financial Health & Personal Wellness Blueprint - VitaWell.Co">
+        <meta property="og:description" content="Unlock the FREE Life Upgrade Formula. Discover the proven 90-day system for financial clarity, superior health, and personal growth. Get your ultimate wellness and wealth blueprint today!">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="[REPLACE_WITH_YOUR_PRIMARY_URL]">
+        <meta property="og:image" content="https://placehold.co/1200x800/1e40af/ffffff?text=Life+Upgrade+Formula">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="The Life Upgrade Formula: Financial Health & Personal Wellness Blueprint - VitaWell.Co">
+        <meta name="twitter:description" content="Unlock the FREE Life Upgrade Formula. Discover the proven 90-day system for financial clarity, superior health, and personal growth. Get your ultimate wellness and wealth blueprint today!">
+        <meta name="twitter:image" content="https://placehold.co/1200x800/1e40af/ffffff?text=Life+Upgrade+Formula">
+        <link rel="canonical" href="[REPLACE_WITH_YOUR_PRIMARY_URL]">
+        <!-- FAQ Schema Markup for Rich Results -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What is the Life Upgrade Formula?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The Life Upgrade Formula is a proven 90-day system designed to help you achieve financial clarity, superior health, and personal growth. It combines wellness strategies with a scalable income blueprint."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is the Life Upgrade Formula really free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes! You can access the core Life Upgrade Formula for free and start your journey to better health and wealth today."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Who created VitaWell.Co?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "VitaWell.Co was founded by Benjamin Ainamani, an educator and entrepreneur passionate about helping others achieve financial and personal success."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How do I get my free blueprint?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Simply click the main call-to-action on this page to connect and receive your free Life Upgrade Formula blueprint."
+                    }
+                }
+            ]
+        }
+        </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f7f9fc; }
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fc; scroll-behavior: smooth; }
         .page { display: none; min-height: calc(100vh - 80px); padding-top: 80px; }
         .page.active { display: block; }
         .cta-button { transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.5); }
         .cta-button:hover { box-shadow: 0 6px 20px rgba(22, 163, 74, 0.7); transform: translateY(-2px); }
-        .hero-bg {
-            background-image: linear-gradient(180deg, rgba(28, 92, 102, 0.8) 0%, rgba(22, 78, 99, 0.6) 100%), 
-                              url('https://placehold.co/1200x800/1e40af/ffffff?text=Aspirational+View');
-            background-size: cover;
-            background-position: center;
-        }
-        /* Chatbot Styles */
-        #chatbot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        #chat-window {
-            height: 400px;
-            width: 300px;
-            border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: none;
-        }
-        .chat-message.bot { background-color: #e0f2f1; color: #004d40; border-radius: 12px 12px 12px 4px; }
-        .chat-message.user { background-color: #2563eb; color: white; border-radius: 12px 12px 4px 12px; }
-        .gemini-loader {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #10b981;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+        .hero-bg { background-image: linear-gradient(180deg, rgba(28, 92, 102, 0.8) 0%, rgba(22, 78, 99, 0.6) 100%), url('https://placehold.co/1200x800/1e40af/ffffff?text=Aspirational+View'); background-size: cover; background-position: center; }
+        #chatbot-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        #chat-window { height: 500px; width: 350px; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); display: none; flex-direction: column; }
+        .chat-message { max-width: 85%; padding: 0.75rem; border-radius: 1rem; line-height: 1.5; word-wrap: break-word; }
+        .chat-message.bot { background-color: #e0f2f1; color: #004d40; align-self: flex-start; }
+        .chat-message.user { background-color: #2563eb; color: white; align-self: flex-end; }
+        .gemini-loader { border: 4px solid #f3f3f3; border-top: 4px solid #10b981; border-radius: 50%; width: 20px; height: 20px; animation: spin 1s linear infinite; margin-right: 10px; display: inline-block; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); display: flex; justify-content: center; align-items: center; z-index: 2000; }
+        .modal-content { background-color: white; padding: 2rem; border-radius: 0.5rem; text-align: center; max-width: 90%; }
+        mark { background-color: #fde047; border-radius: 3px; }
+        .validation-error { border-color: #ef4444 !important; }
+        .validation-success { border-color: #22c55e !important; }
     </style>
 </head>
-<body>
+<body class="text-gray-800">
 
     <!-- Header & Navigation -->
     <header class="w-full py-4 bg-white shadow-xl fixed top-0 z-20">
         <div class="max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8">
-            <h1 class="text-3xl font-extrabold text-blue-700">
-                VitaWell.<span class="text-green-600">Co</span>
-            </h1>
-            <nav class="flex space-x-4 sm:space-x-8">
-                <a href="#home" class="nav-link text-gray-600 hover:text-green-600 font-semibold transition duration-300 active-link" data-page="home">Home</a>
-                <a href="#story" class="nav-link text-gray-600 hover:text-green-600 font-semibold transition duration-300" data-page="story">My Story</a>
-                <a href="#formula" class="nav-link text-gray-600 hover:text-green-600 font-semibold transition duration-300" data-page="formula">The Formula</a>
-                <a href="#proof" class="nav-link text-gray-600 hover:text-green-600 font-semibold transition duration-300" data-page="proof">Validation</a>
-                <a href="#connect" class="nav-link px-4 py-2 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition duration-300" data-page="connect">Connect</a>
+            <h1 class="text-3xl font-extrabold text-blue-700">VitaWell.<span class="text-green-600">Co</span></h1>
+            <nav class="flex space-x-4 sm:space-x-6 items-center">
+                <a href="#home" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="home">Home</a>
+                <a href="#story" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="story">My Story</a>
+                <a href="#formula" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="formula">The Formula</a>
+                <a href="#proof" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="proof">Validation</a>
+                <a href="#connect" class="nav-link px-4 py-2 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700" data-page="connect">Connect</a>
+                <a href="#appointments" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="appointments"><i class="fas fa-calendar-check mr-1"></i>My Appointments</a>
             </nav>
         </div>
     </header>
 
-    <!-- Page 1: Home (Hook & Aspiration) -->
+    <!-- Page 1: Home -->
     <section id="home" class="page active py-24 hero-bg text-white">
         <div class="max-w-5xl mx-auto text-center px-4 sm:px-6 lg:px-8 pt-12 pb-20">
-            <h2 class="text-5xl sm:text-7xl font-extrabold leading-tight mb-4">
-                Life Upgrade: Health & Income United
-            </h2>
-            <p class="text-xl sm:text-3xl font-light mb-10 opacity-90">
-                Stop choosing between your passion and your paycheck. We built a system where both thrive.
-            </p>
-            <a href="#formula" class="inline-block px-12 py-5 bg-green-500 cta-button text-xl font-bold rounded-full hover:bg-green-600 transition duration-300">
-                Start Your Transformation Now <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            <h2 class="text-5xl sm:text-7xl font-extrabold leading-tight mb-4">Tired of Trading Time for Money?</h2>
+            <p class="text-xl sm:text-3xl font-light mb-6 opacity-90">Discover the exact system I used to escape the income trap and build multiple income streams while improving my health. Early adopters are seeing results immediately.</p>
+            <!-- Viral Hook Video Placeholder -->
+            <div class="flex justify-center mb-8">
+                <div class="w-full max-w-2xl aspect-video bg-black rounded-2xl overflow-hidden shadow-lg border-4 border-green-500">
+                    <!-- Replace the src below with your actual video link (YouTube, Vimeo, or MP4) -->
+                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/kxOXIEZFsE0?rel=0&modestbranding=1" title="Viral Hook Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+            <a href="#connect" class="inline-block px-12 py-5 bg-green-500 cta-button text-xl font-bold rounded-full hover:bg-green-600">Let Me Show You How <i class="fas fa-arrow-right ml-2"></i></a>
+            <p class="text-sm opacity-75 mt-4">⏰ Free initial consultation - Limited spots available</p>
         </div>
     </section>
 
-    <!-- Page 2: My Story (Connection & Relatability) -->
+    <!-- Page 2: My Story -->
     <section id="story" class="page py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-extrabold text-blue-700 text-center mb-10">
-                From ICT Teacher to Life Architect: My Journey
-            </h3>
+            <h3 class="text-4xl font-extrabold text-blue-700 text-center mb-10">How I Went From Teacher Salary to Building a Duplication System</h3>
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 text-lg text-gray-600">
-                    <p class="p-4 rounded-xl bg-green-50 border-l-4 border-green-500">
-                        <span class="font-bold text-gray-900">My Name is Benjamin Ainamani.</span> For years, my life was dedicated to teaching ICT, graduating from **KABALE UNIVERSITY in 2023** with a passion for education.
-                    </p>
-                    <p>
-                        The reality, however, was a constant struggle. The reward for my dedication—my salary—was never sufficient to cover my bills, let alone build the future I envisioned. I was professionally fulfilled but financially drained.
-                    </p>
-                    <p>
-                        I realized passion isn't enough; you need a system that pays you for your value. That's when I stopped working *on* my bills and started working *on* my life.
-                    </p>
-                    <p class="font-bold text-xl text-blue-700">
-                        That dissatisfaction fueled the creation of VitaWell.Co. Now, I dedicate myself to duplicating the system that changed my life for anyone hungry for wealth and development.
-                    </p>
+                    <p class="p-4 rounded-xl bg-green-50 border-l-4 border-green-500"><span class="font-bold text-gray-900">I'm Benjamin Ainamani—ICT educator, entrepreneur, founder of VitaWell.Co.</span> My story? Like thousands of professionals—passion for my craft, terrible paycheque.</p>
+                    <p><strong>The turning point:</strong> I discovered a system that combined wellness products (real health benefits) with a duplication model for residual income. Not theory. Real numbers. Real people earning real money while improving their health.</p>
+                    <p>I didn't invent the opportunity. I mastered it. Then I built VitaWell.Co to help coachable people like you replicate exactly what I did—step by step, no guesswork.</p>
+                    <p class="font-bold text-xl text-green-700">🎯 Today, people are joining because they see the results. Not because they "need money." Because they can see the system works.</p>
                 </div>
-                <div>
-                    <img src="https://placehold.co/500x500/10b981/ffffff?text=Ainamani+Benjamin+Profile" alt="Benjamin Ainamani Profile" class="w-full h-auto rounded-3xl shadow-2xl">
-                </div>
+                <div><img src="assets/AinamaniProfile.png.jpg" alt="Benjamin Ainamani Profile" class="w-full h-auto rounded-3xl shadow-2xl"></div>
             </div>
-            <div class="text-center mt-12">
-                <a href="#formula" class="inline-block px-8 py-3 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800 transition duration-300">
-                    See The System I Duplicated <i class="fas fa-hand-point-right ml-2"></i>
-                </a>
-            </div>
+            <div class="text-center mt-12"><a href="#formula" class="inline-block px-8 py-3 bg-blue-700 text-white font-bold rounded-lg hover:bg-blue-800">See The System I Duplicated <i class="fas fa-hand-point-right ml-2"></i></a></div>
         </div>
     </section>
 
-    <!-- Page 3: The Formula (Covert Pitch - The System) -->
+    <!-- Page 3: The Formula -->
     <section id="formula" class="page py-16 bg-gray-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-extrabold text-green-700 text-center mb-12">
-                The VitaWell.Co Duplication System
-            </h3>
+            <h3 class="text-4xl font-extrabold text-green-700 text-center mb-12">The Three-Pillar System That Works</h3>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Pillar 1: The Health Catalyst (With Gemini Feature) -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500 hover:shadow-xl transition duration-300">
-                    <i class="fas fa-chart-line text-3xl text-blue-500 mb-3"></i>
-                    <h4 class="text-2xl font-bold mb-2">1. The Health Catalyst</h4>
-                    <p class="text-gray-600">We leverage scientifically-backed wellness solutions to ensure our partners are operating at peak physical and mental energy. We sell results first.</p>
+                <!-- Pillar 1: Premium Wellness -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                    <i class="fas fa-pills text-3xl text-blue-500 mb-3"></i>
+                    <h4 class="text-2xl font-bold mb-2">1. Premium Wellness</h4>
+                    <p class="text-gray-600 mb-4">FDA-registered, NSF-certified products from Earth's Creation USA. Real health benefits. Real customers. People join because they feel the difference—energy, clarity, focus. Then they share.</p>
+                    <div class="space-y-2">
+                        <a href="https://vitablog.co/products" target="_blank" rel="noopener" class="block w-full px-4 py-2 bg-blue-500 text-white text-center font-semibold rounded-lg hover:bg-blue-600 transition">📦 View Products</a>
+                        <a href="https://vitablog.co#products" class="block w-full px-4 py-2 bg-blue-100 text-blue-700 text-center font-semibold rounded-lg hover:bg-blue-200 transition">🔗 See Reviews</a>
+                    </div>
+                </div>
 
-                    <!-- Gemini Feature 2: Health Benefit Summarizer -->
-                    <button onclick="getHealthBenefit()" id="health-btn" class="mt-4 w-full px-4 py-2 bg-yellow-500 text-white font-semibold rounded-lg hover:bg-yellow-600 transition duration-300 flex items-center justify-center">
-                        ✨ Discover a Core Benefit
-                    </button>
-                    <p id="health-output" class="mt-2 text-sm text-gray-700 italic"></p>
-                </div>
-                <!-- Pillar 2: The Collaborative Model -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-500 hover:shadow-xl transition duration-300">
+                <!-- Pillar 2: Collaborative Income -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-500">
                     <i class="fas fa-sitemap text-3xl text-yellow-500 mb-3"></i>
-                    <h4 class="text-2xl font-bold mb-2">2. The Collaborative Model</h4>
-                    <p class="text-gray-600">Our income system is built on partnership, not hierarchy. We teach a modern, traceable method for generating scalable residual income from a supportive network.</p>
+                    <h4 class="text-2xl font-bold mb-2">2. Collaborative Income</h4>
+                    <p class="text-gray-600 mb-4">10 proven ways to earn: retail profit, sponsor bonus, pairing income, generational leadership income, and more. It's partnership—not recruitment. Growth Partnership is the model professionals are joining.</p>
+                    <div class="space-y-2">
+                        <a href="https://vitablog.co/opportunities" target="_blank" rel="noopener" class="block w-full px-4 py-2 bg-yellow-500 text-white text-center font-semibold rounded-lg hover:bg-yellow-600 transition">💰 Income Opportunities</a>
+                        <a href="#proof" class="block w-full px-4 py-2 bg-yellow-100 text-yellow-700 text-center font-semibold rounded-lg hover:bg-yellow-200 transition">👥 Success Stories</a>
+                    </div>
                 </div>
-                <!-- Pillar 3: The Duplication Protocol -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500 hover:shadow-xl transition duration-300">
-                    <i class="fas fa-graduation-cap text-3xl text-green-500 mb-3"></i>
-                    <h4 class="text-2xl font-bold mb-2">3. The Duplication Protocol</h4>
-                    <p class="text-gray-600">Benjamin provides a step-by-step training curriculum (the exact steps he used) ensuring anyone, regardless of background, can replicate success.</p>
+
+                <!-- Pillar 3: Done-For-You Training -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500">
+                    <i class="fas fa-book-open text-3xl text-green-500 mb-3"></i>
+                    <h4 class="text-2xl font-bold mb-2">3. Done-For-You Training</h4>
+                    <p class="text-gray-600 mb-4">I've duplicated the system into a step-by-step curriculum. Cell training, Power Hour, General Training, online sessions. You're never alone. Success leaves clues—I show you exactly where I found them.</p>
+                    <div class="space-y-2">
+                        <a href="#proof" class="block w-full px-4 py-2 bg-green-500 text-white text-center font-semibold rounded-lg hover:bg-green-600 transition">📚 Training System</a>
+                        <a href="#connect" class="block w-full px-4 py-2 bg-green-100 text-green-700 text-center font-semibold rounded-lg hover:bg-green-200 transition">🎯 Apply Now</a>
+                    </div>
                 </div>
             </div>
-            <div class="text-center mt-12">
-                <a href="#proof" class="inline-block px-8 py-3 bg-yellow-600 text-white font-bold rounded-lg hover:bg-yellow-700 transition duration-300">
-                    See the Validation <i class="fas fa-check-circle ml-2"></i>
-                </a>
-            </div>
+            <div class="text-center mt-12"><a href="#proof" class="inline-block px-8 py-3 bg-yellow-600 text-white font-bold rounded-lg hover:bg-yellow-700">See the Validation <i class="fas fa-check-circle ml-2"></i></a></div>
         </div>
     </section>
 
-    <!-- Page 4: Proof (Validation & Testimonials) -->
+    <!-- Page 4: Proof -->
     <section id="proof" class="page py-16 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-4xl font-extrabold text-blue-700 text-center mb-12">
-                Results Speak Louder Than Promises
-            </h3>
+            <h3 class="text-4xl font-extrabold text-blue-700 text-center mb-12">Real People, Real Results, Real Income</h3>
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- Testimonial 1 -->
                 <div id="testimonial-1" class="bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-green-600">
-                    <p class="italic text-gray-700 mb-4 testimonial-text">"The VitaWell system didn't just boost my energy, it provided the blueprint for leaving my stagnant job. Benjamin's mentorship is real. Highly recommended!"</p>
-                    <p class="font-bold text-gray-900">- Sarah K. (Former Administrator)</p>
-                    <!-- Gemini Feature 3: TTS Button -->
-                    <button onclick="speakTestimonial('testimonial-1')" class="mt-3 px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition duration-300 flex items-center">
-                        ✨ Hear Testimonial <i class="fas fa-volume-up ml-2"></i>
-                    </button>
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/NaluwoozaRacheal.png" alt="Naluwooza Racheal" class="w-20 h-20 rounded-full object-cover shadow-md">
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg">Naluwooza Racheal</p>
+                            <p class="text-sm text-green-600">Left job, now building team</p>
+                        </div>
+                    </div>
+                    <p class="italic text-gray-700 mb-4 testimonial-text">"I felt trapped in my job. The wellness products transformed my health, but the real breakthrough? Seeing the income structure actually work. Benjamin shows you step-by-step. I'm building a team and seeing results monthly."</p>
+                    <button onclick="speakTestimonial('testimonial-1')" class="mt-3 px-4 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 flex items-center cursor-pointer"><i class="fas fa-volume-up mr-2"></i>Hear Success Story</button>
                 </div>
-                <!-- Testimonial 2 -->
                 <div id="testimonial-2" class="bg-gray-50 p-6 rounded-xl shadow-md border-l-4 border-blue-600">
-                    <p class="italic text-gray-700 mb-4 testimonial-text">"I joined from outside Kampala and the digital training made the location irrelevant. I'm building a team and the passive income potential is mind-blowing."</p>
-                    <p class="font-bold text-gray-900">- Moses O. (Entrepreneur)</p>
-                     <!-- Gemini Feature 3: TTS Button -->
-                    <button onclick="speakTestimonial('testimonial-2')" class="mt-3 px-4 py-2 bg-blue-500 text-white text-sm font-semibold rounded-lg hover:bg-blue-600 transition duration-300 flex items-center">
-                        ✨ Hear Testimonial <i class="fas fa-volume-up ml-2"></i>
-                    </button>
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="assets/JamesSebugala.png" alt="James SSebugala" class="w-20 h-20 rounded-full object-cover shadow-md">
+                        <div>
+                            <p class="font-bold text-gray-900 text-lg">James SSebugala</p>
+                            <p class="text-sm text-blue-600">Building passive income streams</p>
+                        </div>
+                    </div>
+                    <p class="italic text-gray-700 mb-4 testimonial-text">"I'm remote—didn't think this applied to me. But the digital training and VitaBot are all I needed. I'm not just earning—I'm building generational wealth. Location doesn't matter. Hunger does."</p>
+                    <button onclick="speakTestimonial('testimonial-2')" class="mt-3 px-4 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 flex items-center cursor-pointer"><i class="fas fa-volume-up mr-2"></i>Hear Success Story</button>
                 </div>
             </div>
-            <div class="text-center mt-12">
-                <a href="#connect" class="inline-block px-10 py-4 bg-red-600 text-white text-lg font-bold rounded-full cta-button hover:bg-red-700 transition duration-300">
-                    I'm Ready for the Upgrade! <i class="fas fa-bolt ml-2"></i>
-                </a>
-            </div>
+            <div class="text-center mt-12"><a href="#connect" class="inline-block px-10 py-4 bg-red-600 text-white text-lg font-bold rounded-full cta-button hover:bg-red-700">Let's Get You Started Today <i class="fas fa-bolt ml-2"></i></a><p class="text-sm text-gray-600 mt-3">Serious inquiries only. Application required.</p></div>
         </div>
     </section>
 
-    <!-- Page 5: Connect (High-Commitment Conversion) -->
-    <section id="connect" class="page py-16 hero-bg text-white">
-        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-gray-900 bg-opacity-80 p-8 rounded-xl shadow-2xl">
-            <h3 class="text-4xl font-extrabold mb-4">
-                Exclusive Opportunity: Apply to Partner
-            </h3>
-            <p class="text-lg mb-8">
-                Benjamin only partners with those who are truly ready for action. Fill out this quick form to reserve your spot on the team.
-            </p>
-
-            <form id="contactForm" class="space-y-4">
-                <input type="text" placeholder="Your Full Name" required class="w-full px-4 py-3 rounded-lg text-gray-900">
-                <input type="email" placeholder="Your Best Email" required class="w-full px-4 py-3 rounded-lg text-gray-900">
-                <input type="tel" placeholder="Your WhatsApp Number (Essential)" required class="w-full px-4 py-3 rounded-lg text-gray-900">
-                <textarea id="commitment-textarea" placeholder="Why do you want a life upgrade right now? (Show commitment)" rows="3" required class="w-full px-4 py-3 rounded-lg text-gray-900"></textarea>
-                
-                <!-- Gemini Feature 1: Dream Chart Generator -->
-                <button type="button" onclick="generateDreamChart()" id="dream-chart-btn" class="w-full px-6 py-3 bg-blue-500 cta-button text-white font-bold rounded-lg hover:bg-blue-600 transition duration-300 flex items-center justify-center">
-                    ✨ Generate My Power Statement
-                </button>
-                <div id="dream-chart-output" class="p-3 bg-gray-100 text-gray-800 rounded-lg text-sm text-left hidden">
-                    <p class="font-bold mb-1">Your Personal Mission:</p>
-                    <p id="dream-chart-text"></p>
+    <!-- Page 5: Connect -->
+    <section id="connect" class="page py-16 hero-bg text-white flex items-center justify-center">
+        <div class="max-w-xl w-full mx-auto px-4 text-center bg-gray-900 bg-opacity-80 p-8 rounded-xl shadow-2xl">
+            <h3 class="text-4xl font-extrabold mb-4">Ready to Build Your Life Upgrade?</h3>
+            <p class="text-lg mb-8">Apply below. I personally review every application. If you're coachable and serious about change, we move fast.</p>
+            <form id="applicationForm" class="space-y-4">
+                <input type="text" id="form-name" name="name" placeholder="Your Full Name" required class="w-full px-4 py-3 rounded-lg text-gray-900">
+                <input type="email" name="email" placeholder="Your Best Email" required class="w-full px-4 py-3 rounded-lg text-gray-900">
+                <div class="flex gap-2">
+                    <select id="country-code" class="bg-gray-200 text-gray-700 rounded-l-lg px-2 focus:outline-none">
+                        <option disabled selected>Loading...</option>
+                    </select>
+                    <input type="tel" id="form-phone" name="phone" placeholder="700123456" required class="w-full px-4 py-3 rounded-r-lg text-gray-900 border border-gray-300">
                 </div>
-                
-                <button type="submit" id="submit-btn" class="w-full px-6 py-4 bg-green-500 cta-button text-gray-900 text-xl font-extrabold rounded-lg hover:bg-green-600 transition duration-300">
-                    Submit My Application & Reserve Spot
-                </button>
+                <p id="phone-validation-msg" class="text-red-400 text-xs text-left hidden -mt-2">Please enter a valid phone number.</p>
+                <textarea id="commitment-textarea" name="commitment" placeholder="Why do you want a life upgrade right now?" rows="3" required class="w-full px-4 py-3 rounded-lg text-gray-900"></textarea>
+                <button type="submit" id="main-submit-btn" class="w-full px-6 py-4 bg-green-500 cta-button text-white text-xl font-extrabold rounded-lg hover:bg-green-600 disabled:bg-gray-400 disabled:cursor-not-allowed">Submit My Application</button>
+                <div class="pt-4 border-t border-gray-600">
+                    <p class="text-sm text-gray-400 mb-2">Or, contact the admin directly:</p>
+                    <div class="flex gap-4">
+                        <a id="manual-whatsapp-btn" href="#" target="_blank" class="flex-1 px-4 py-2 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 flex items-center justify-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a id="manual-sms-btn" href="#" class="flex-1 px-4 py-2 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600 flex items-center justify-center gap-2"><i class="fas fa-comment-sms"></i> SMS</a>
+                    </div>
+                </div>
             </form>
         </div>
     </section>
 
-    <!-- Page 6: Chatbot Interface (Integrated) -->
-    <div id="chatbot-container">
-        <button id="chat-toggle" class="bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition duration-300" title="Toggle Chatbot">
-            <i class="fas fa-robot text-2xl"></i>
-        </button>
-        <div id="chat-window" class="flex flex-col bg-white border border-gray-300">
-            <!-- Chat Header -->
-            <div class="p-3 bg-blue-700 text-white font-bold rounded-t-xl flex justify-between items-center">
-                VitaBot: Your AI Growth Partner
-                <button id="chat-close" class="text-white hover:text-gray-300"><i class="fas fa-times"></i></button>
-            </div>
-            <!-- Chat Messages -->
-            <div id="chat-messages" class="flex-grow p-4 overflow-y-auto space-y-3">
-                <div class="chat-message bot p-3 max-w-[85%] self-start">
-                    Hi! I'm VitaBot. I'm here to answer questions about the VitaWell.Co Life Upgrade Formula. Ask me about achieving better health or generating income!
+    <!-- Page 6: My Appointments -->
+    <section id="appointments" class="page py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-4xl font-extrabold text-green-700 text-center mb-12">Book Your Appointment</h3>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Left Column: Information -->
+                <div class="space-y-6">
+                    <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
+                        <h4 class="text-xl font-bold text-blue-700 mb-2">📅 What to Expect</h4>
+                        <p class="text-gray-700">Once you book an appointment, our consultant team will review your information and reach out within 24-48 hours to discuss your specific goals and how the Life Upgrade Formula can help you achieve them.</p>
+                    </div>
+                    <div class="bg-green-50 p-6 rounded-xl border-l-4 border-green-500">
+                        <h4 class="text-xl font-bold text-green-700 mb-2">✅ Your Benefits</h4>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Free consultation</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Personalized action plan</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Direct access to Benjamin</li>
+                            <li class="flex items-center"><i class="fas fa-check text-green-500 mr-3"></i>Community support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-green-500">
+                    <div id="client-login-area">
+                        <button id="google-signin-btn" class="w-full py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-700 mb-4 transition flex items-center justify-center"><i class="fab fa-google mr-2"></i>Sign in with Google</button>
+                        <p id="client-login-error" class="text-red-500 text-sm text-center hidden"></p>
+                    </div>
+                    <form id="appointmentForm" class="space-y-4 hidden">
+                        <input type="text" id="appointment-name" placeholder="Your Full Name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <input type="text" id="client-email" placeholder="Your Email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" readonly>
+                        <input type="text" id="appointment-phone" placeholder="Your Phone (+256...)" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <button type="submit" class="w-full py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition">Submit Appointment</button>
+                    </form>
+                    <div id="progress-tracker" class="hidden">
+                        <h4 class="text-lg font-bold text-blue-700 mb-4 text-center">📊 Your Progress</h4>
+                        <ul class="space-y-3">
+                            <li id="step-1" class="flex items-center text-gray-700"><span class="step-icon mr-3 text-lg">🔵</span><span>Appointment Received</span></li>
+                            <li id="step-2" class="flex items-center text-gray-700"><span class="step-icon mr-3 text-lg">⚪</span><span>Consultant Review</span></li>
+                            <li id="step-3" class="flex items-center text-gray-700"><span class="step-icon mr-3 text-lg">⚪</span><span>Consultant Will Reach Out</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <!-- Chat Input -->
-            <div class="p-3 border-t border-gray-200 flex">
-                <input type="text" id="chat-input" placeholder="Ask VitaBot..." class="flex-grow px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none" onkeydown="if(event.key === 'Enter') sendMessage()">
-                <button onclick="sendMessage()" class="bg-green-600 text-white px-4 py-2 rounded-r-lg hover:bg-green-700 transition duration-300">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+        </div>
+    </section>
+
+    <!-- Page 7: Admin Login -->
+    <section id="admin-login" class="page py-16 bg-gray-100 flex items-center justify-center">
+        <div class="max-w-md w-full bg-white p-8 rounded-xl shadow-lg">
+            <h3 class="text-3xl font-extrabold text-blue-700 text-center mb-6">Admin Login</h3>
+            <form id="adminLoginForm" class="space-y-4">
+                <input type="password" id="admin-password" placeholder="Password" required class="w-full px-4 py-3 border border-gray-300 rounded-lg">
+                <button type="submit" class="w-full py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700">Login</button>
+                <p id="login-error" class="text-red-500 text-sm text-center hidden"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Page 8: Admin Dashboard -->
+    <section id="admin-dashboard" class="page py-16 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-3xl font-extrabold text-blue-700">Client Applications</h3>
+                <button id="logout-btn" class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700">Logout</button>
             </div>
-            <div id="typing-indicator" class="text-xs text-gray-500 p-1 pl-4 hidden">VitaBot is typing...</div>
+            <div id="applications-container" class="bg-white p-6 rounded-xl shadow-lg overflow-x-auto"><p>Loading applications...</p></div>
+        </div>
+    </section>
+    
+    <!-- Chatbot Floating Button & Window -->
+    <div id="chatbot-container">
+        <button id="chat-toggle-btn" class="bg-gradient-to-r from-blue-600 to-green-500 text-white p-4 rounded-full shadow-lg hover:shadow-xl" title="Chat with VitaBot - Your AI Growth Partner"><i class="fas fa-comment-dots text-2xl"></i></button>
+    </div>
+    <div id="chat-window" class="fixed bottom-20 right-5">
+        <div class="p-3 bg-gradient-to-r from-blue-700 to-green-600 text-white font-bold rounded-t-xl flex justify-between items-center">
+            <span>🤖 VitaBot - Powered by VitaWell.Co</span>
+            <span class="text-xs font-light">Conversion AI</span>
+        </div>
+        <div id="chat-body" class="flex-1 overflow-y-auto p-4 space-y-4 bg-white flex flex-col">
+            <div class="chat-message bot"><strong>VitaBot (Official):</strong> Hi! I'm VitaBot, your AI Growth Partner powered by VitaWell.Co—founded by AINAMANI BENJAMIN, an ICT educator and entrepreneur. I'm here to help you discover the Life Upgrade Formula and connect you to life-changing opportunities. What can I help you with today?</div>
+        </div>
+        <div id="typing-indicator" class="p-3 bg-white text-sm text-gray-600 hidden items-center"><div class="gemini-loader"></div><span></span></div>
+        <div class="p-3 border-t bg-white border-gray-200 flex items-center rounded-b-xl">
+            <input type="text" id="chat-input" placeholder="Ask VitaBot..." class="flex-grow px-3 py-2 border border-gray-300 rounded-l-lg focus:outline-none">
+            <button id="chat-mic-btn" class="bg-blue-600 text-white px-3 py-2 hover:bg-blue-700" title="Ask by voice"><i class="fas fa-microphone"></i></button>
+            <button id="chat-send-btn" class="bg-green-600 text-white px-4 py-2 rounded-r-lg hover:bg-green-700"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
+    <!-- Modal for Application Success -->
+    <div id="notification-modal" class="modal hidden">
+        <div class="modal-content">
+            <h4 class="text-2xl font-bold text-green-600 mb-4">Application Successful!</h4>
+            <p class="mb-4">Your application has been received. You can also notify the admin directly.</p>
+            <a id="whatsapp-link" href="#" target="_blank" class="inline-block px-6 py-3 bg-green-500 text-white font-bold rounded-lg">Send Notification</a>
+            <button id="close-modal-btn" class="block mx-auto mt-4 text-gray-600 hover:text-gray-800">Close</button>
         </div>
     </div>
 
-
-    <script>
-        // --- CORE JAVASCRIPT LOGIC ---
-
-        const PAGES = ['home', 'story', 'formula', 'proof', 'connect'];
-        let currentHash = window.location.hash.substring(1) || 'home';
+<script>
+// --- Google OAuth Client Login (Open Source) ---
+// For demo: Use Google Identity Services (https://developers.google.com/identity/gsi/web)
+// In production, use passport.js or Firebase Auth for backend verification
+let clientEmail = null;
+window.onload = function() {
+    const googleBtn = document.getElementById('google-signin-btn');
+    const clientLoginArea = document.getElementById('client-login-area');
+    const appointmentForm = document.getElementById('appointmentForm');
+    const clientEmailInput = document.getElementById('client-email');
+    const progressTracker = document.getElementById('progress-tracker');
+    // Google Sign-In (mock)
+    googleBtn.onclick = function() {
+        // Simulate Google OAuth (replace with real implementation)
+        setTimeout(() => {
+            clientEmail = 'clientdemo@gmail.com'; // Replace with Google profile email
+            clientEmailInput.value = clientEmail;
+            clientLoginArea.style.display = 'none';
+            appointmentForm.style.display = 'block';
+        }, 500);
+    };
+    // Appointment Submission
+    appointmentForm.onsubmit = function(e) {
+        e.preventDefault();
+        const name = document.getElementById('appointment-name').value;
+        const email = document.getElementById('client-email').value;
+        const phone = document.getElementById('appointment-phone').value;
         
-        function navigate(pageId) {
-            if (!PAGES.includes(pageId)) pageId = 'home';
+        // Disable submit button to prevent duplicate submissions
+        const submitBtn = appointmentForm.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        
+        // POST to /api/appointments endpoint
+        fetch('/api/appointments', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, phone })
+        })
+        .then(response => {
+            if (!response.ok) {
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Submission failed');
+                });
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Show success progress
+            document.getElementById('step-1').innerHTML = '<span class="step-icon mr-2">🟢</span>Appointment Received';
+            document.getElementById('step-2').innerHTML = '<span class="step-icon mr-2">🔵</span>Consultant Review';
+            document.getElementById('step-3').innerHTML = '<span class="step-icon mr-2">⚪</span>Consultant Will Reach Out';
+            appointmentForm.style.display = 'none';
+            progressTracker.style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Appointment submission error:', error);
+            alert('Error submitting appointment: ' + error.message);
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Appointment';
+        });
+    };
+    // Simulate admin confirmation (for demo)
+    setTimeout(() => {
+        if (progressTracker.style.display === 'block') {
+            document.getElementById('step-2').innerHTML = '<span class="step-icon mr-2">🟢</span>Consultant Review';
+            document.getElementById('step-3').innerHTML = '<span class="step-icon mr-2">🔵</span>Consultant Will Reach Out';
+        }
+    }, 5000);
+    // Simulate consultant outreach (for demo)
+    setTimeout(() => {
+        if (progressTracker.style.display === 'block') {
+            document.getElementById('step-3').innerHTML = '<span class="step-icon mr-2">🟢</span>Consultant Will Reach Out';
+        }
+    }, 10000);
+}
+document.addEventListener('DOMContentLoaded', () => {
+    // --- ELEMENT REFERENCES ---
+    const appElements = {
+        navLinks: document.querySelectorAll('.nav-link'),
+        pages: document.querySelectorAll('.page'),
+        applicationForm: document.getElementById('applicationForm'),
+        adminLoginForm: document.getElementById('adminLoginForm'),
+        logoutBtn: document.getElementById('logout-btn'),
+        applicationsContainer: document.getElementById('applications-container'),
+        loginError: document.getElementById('login-error'),
+        notificationModal: document.getElementById('notification-modal'),
+        whatsappLink: document.getElementById('whatsapp-link'),
+        closeModalBtn: document.getElementById('close-modal-btn'),
+        formName: document.getElementById('form-name'),
+        formPhone: document.getElementById('form-phone'),
+        countryCode: document.getElementById('country-code'),
+        phoneValidationMsg: document.getElementById('phone-validation-msg'),
+        mainSubmitBtn: document.getElementById('main-submit-btn'),
+        manualWhatsappBtn: document.getElementById('manual-whatsapp-btn'),
+        manualSmsBtn: document.getElementById('manual-sms-btn'),
+    };
+    const chatElements = {
+        toggleBtn: document.getElementById('chat-toggle-btn'),
+        window: document.getElementById('chat-window'),
+        body: document.getElementById('chat-body'),
+        input: document.getElementById('chat-input'),
+        sendBtn: document.getElementById('chat-send-btn'),
+        micBtn: document.getElementById('chat-mic-btn'),
+        typingIndicator: document.getElementById('typing-indicator'),
+        indicatorSpan: document.querySelector('#typing-indicator span'),
+    };
+
+    // --- APP STATE ---
+    let chatHistory = [];
+    let isSending = false;
+    const API_PROXY_URL = '/api/gemini';
+    const ADMIN_PHONE_NUMBER = '256700239737';
+    
+    // --- DYNAMIC COUNTRY CODE POPULATION ---
+    async function populateCountries() {
+        try {
+            const response = await fetch('./countries.json');
+            if (!response.ok) throw new Error('Network response was not ok');
+            const countries = await response.json();
             
-            // Update URL hash
-            window.location.hash = pageId;
-            
-            // Update page display
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
+            appElements.countryCode.innerHTML = ''; // Clear loading option
 
-            // Update active navigation link
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('text-green-600', 'active-link');
-                link.classList.add('text-gray-600');
-                if (link.getAttribute('data-page') === pageId) {
-                    link.classList.add('text-green-600', 'active-link');
-                    link.classList.remove('text-gray-600');
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.dial_code;
+                option.textContent = `${country.code} ${country.dial_code}`;
+                if (country.code === 'UG') {
+                    option.selected = true;
                 }
+                appElements.countryCode.appendChild(option);
             });
-            window.scrollTo(0, 0); // Scroll to top on navigation
+        } catch (error) {
+            console.error("Failed to load country codes:", error);
+            appElements.countryCode.innerHTML = `<option value="+256" selected>UG +256</option>`;
+        }
+    }
+
+    // --- NAVIGATION LOGIC ---
+    const PAGES = ['home', 'story', 'formula', 'proof', 'connect', 'appointments', 'admin-login', 'admin-dashboard'];
+    function navigate(pageId) {
+        if (pageId === 'admin-dashboard' && !localStorage.getItem('admin-token')) pageId = 'admin-login';
+        if (!PAGES.includes(pageId)) pageId = 'home';
+        window.location.hash = pageId;
+        appElements.pages.forEach(p => p.style.display = (p.id === pageId) ? 'block' : 'none');
+        appElements.navLinks.forEach(link => link.classList.toggle('active-link', link.getAttribute('data-page') === pageId));
+        window.scrollTo(0, 0); // Scrolling Fix
+        if (pageId === 'admin-dashboard') loadAdminDashboard();
+    }
+
+    // --- FORM VALIDATION AND MANUAL NOTIFICATION LOGIC ---
+    function validatePhone() {
+        // A more generic validation: checks if it contains only digits and is between 7 and 10 digits long.
+        const phoneRegex = /^\d{7,10}$/; 
+        const isValid = phoneRegex.test(appElements.formPhone.value);
+        appElements.formPhone.classList.toggle('validation-success', isValid);
+        appElements.formPhone.classList.toggle('validation-error', !isValid && appElements.formPhone.value.length > 0);
+        appElements.phoneValidationMsg.textContent = `Please enter a valid phone number (7-10 digits without country code).`;
+        appElements.phoneValidationMsg.classList.toggle('hidden', isValid);
+        appElements.mainSubmitBtn.disabled = !isValid;
+        return isValid;
+    }
+
+    function updateNotificationLinks() {
+        const name = appElements.formName.value || 'New Applicant';
+        let fullPhone = '';
+        if (validatePhone()) {
+            fullPhone = appElements.countryCode.value + appElements.formPhone.value;
+        }
+        const message = `New VitaWell.Co Application from ${name} (${fullPhone}).`;
+        appElements.manualWhatsappBtn.href = `https://wa.me/${ADMIN_PHONE_NUMBER}?text=${encodeURIComponent(message)}`;
+        appElements.manualSmsBtn.href = `sms:${ADMIN_PHONE_NUMBER}?&body=${encodeURIComponent(message)}`;
+    }
+
+    // --- INITIALIZATION ---
+    function initializeApp() {
+        window.addEventListener('hashchange', () => navigate(window.location.hash.substring(1) || 'home'));
+        if (appElements.applicationForm) {
+            populateCountries();
+            appElements.formPhone.addEventListener('input', () => { validatePhone(); updateNotificationLinks(); });
+            appElements.formName.addEventListener('input', updateNotificationLinks);
+            appElements.countryCode.addEventListener('change', () => { validatePhone(); updateNotificationLinks(); });
+            validatePhone();
+            updateNotificationLinks();
+        }
+        // Attach other event listeners
+        appElements.applicationForm?.addEventListener('submit', handleApplicationSubmit);
+        appElements.adminLoginForm?.addEventListener('submit', handleAdminLogin);
+        appElements.logoutBtn?.addEventListener('click', () => { localStorage.removeItem('admin-token'); navigate('home'); });
+        appElements.closeModalBtn?.addEventListener('click', () => appElements.notificationModal.classList.add('hidden'));
+        chatElements.toggleBtn.addEventListener('click', () => {
+            const isHidden = chatElements.window.style.display === 'none' || chatElements.window.style.display === '';
+            chatElements.window.style.display = isHidden ? 'flex' : 'none';
+        });
+        chatElements.sendBtn.addEventListener('click', () => sendMessage());
+        chatElements.input.addEventListener('keypress', (e) => e.key === 'Enter' && sendMessage());
+        chatElements.micBtn.addEventListener('click', () => startSpeechRecognition());
+        
+        navigate(window.location.hash.substring(1) || 'home');
+    }
+
+    // --- EVENT HANDLERS & ASYNC FUNCTIONS ---
+    async function handleApplicationSubmit(e) {
+        e.preventDefault();
+        const fullPhone = appElements.countryCode.value + appElements.formPhone.value;
+        const data = { name: appElements.formName.value, email: e.target.querySelector('input[name="email"]').value, phone: fullPhone, commitment: e.target.querySelector('textarea[name="commitment"]').value };
+        try {
+            const response = await fetch('/api/apply', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+            const result = await response.json();
+            if (!response.ok) throw new Error(result.error);
+            appElements.whatsappLink.href = result.whatsappLink;
+            appElements.notificationModal.classList.remove('hidden');
+            e.target.reset();
+            validatePhone();
+        } catch (error) { alert(`Error: ${error.message}`); }
+    }
+
+    async function handleAdminLogin(e) {
+        e.preventDefault();
+        const password = e.target.querySelector('input').value;
+        try {
+            const response = await fetch('/api/admin/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password }) });
+            const result = await response.json();
+            if (!response.ok) throw new Error(result.error);
+            localStorage.setItem('admin-token', result.token);
+            appElements.loginError.classList.add('hidden');
+            navigate('admin-dashboard');
+        } catch (error) {
+            appElements.loginError.textContent = error.message;
+            appElements.loginError.classList.remove('hidden');
+        }
+    }
+
+    async function loadAdminDashboard() {
+        const token = localStorage.getItem('admin-token');
+        if (!token) { navigate('admin-login'); return; }
+        try {
+            const response = await fetch('/api/admin/applications', { headers: { 'Authorization': `Bearer ${token}` } });
+            const apps = await response.json();
+            if (!response.ok) throw new Error(apps.error);
+            if (apps.length === 0) { appElements.applicationsContainer.innerHTML = '<p>No applications yet.</p>'; return; }
+            let table = '<table class="w-full text-left"><thead><tr class="border-b"><th class="p-2">Date</th><th>Name</th><th>Email</th><th>Phone</th></tr></thead><tbody>';
+            apps.reverse().forEach(app => {
+                table += `<tr class="border-b"><td class="p-2">${new Date(app.submittedAt).toLocaleDateString()}</td><td class="p-2">${app.name}</td><td class="p-2">${app.email}</td><td class="p-2">${app.phone}</td></tr>`;
+            });
+            appElements.applicationsContainer.innerHTML = table + '</tbody></table>';
+        } catch (error) {
+            appElements.applicationsContainer.innerHTML = `<p class="text-red-500">Error: ${error.message}</p>`;
+        }
+    }
+
+    // --- ORIGINAL GEMINI FEATURES ---
+    async function generateDreamChart() { /* ... */ }
+    async function getHealthBenefit() { /* ... */ }
+    function speakTestimonial(id) {
+        const testimonialDiv = document.getElementById(id);
+        if (!testimonialDiv) return;
+        const textEl = testimonialDiv.querySelector('.testimonial-text');
+        if (!textEl) return;
+        const text = textEl.textContent;
+        const synth = window.speechSynthesis;
+        if (!synth) return;
+        synth.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 1.0;
+        synth.speak(utterance);
+    }
+
+    // --- CHATBOT LOGIC ---
+    function addMessageToChat(text, sender, id = null) {
+        const messageEl = document.createElement('div');
+        if (id) messageEl.id = id;
+        messageEl.className = `chat-message ${sender}`;
+        messageEl.innerHTML = text;
+        chatElements.body.appendChild(messageEl);
+        chatElements.body.scrollTop = chatElements.body.scrollHeight;
+        return messageEl;
+    }
+
+    function speakText(text, messageElementId) {
+        const synth = window.speechSynthesis;
+        if (!synth || !text) return;
+        synth.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 1.1;
+        const messageElement = document.getElementById(messageElementId);
+        if (!messageElement) return;
+        utterance.onboundary = (event) => {
+            if (event.name !== 'word') return;
+            const originalText = messageElement.textContent;
+            let highlightedHTML = originalText.substring(0, event.charIndex) + `<mark>${originalText.substring(event.charIndex, event.charIndex + event.charLength)}</mark>` + originalText.substring(event.charIndex + event.charLength);
+            messageElement.innerHTML = highlightedHTML;
+        };
+        utterance.onend = () => { if(messageElement) messageElement.innerHTML = text; };
+        synth.speak(utterance);
+    }
+
+    function displayAndSpeak(messageId, text) {
+        const messageElement = document.getElementById(messageId);
+        if (!messageElement) return;
+        messageElement.textContent = text;
+        speakText(text, messageId);
+    }
+
+    function sendMessage() {
+        const userMessage = chatElements.input.value.trim();
+        if (userMessage === '' || isSending) return;
+        handleUserInput(userMessage);
+    }
+
+    function getRetryDelayFromError(errorBody) {
+        if (typeof errorBody?.message !== 'string') return 30000;
+        const match = errorBody.message.match(/retry in ([\d\.]+)\s*s/i);
+        if (match && match[1]) return Math.ceil(parseFloat(match[1])) * 1000;
+        return 30000;
+    }
+
+    async function handleUserInput(userMessage) {
+        addMessageToChat(userMessage, 'user');
+        chatElements.input.value = '';
+        isSending = true;
+        chatHistory.push({ role: 'user', parts: [{ text: userMessage }] });
+
+        // Quick greetings handled locally
+        const lowerCaseMessage = userMessage.toLowerCase();
+        if (['hello', 'hi', 'hey'].some(g => lowerCaseMessage.startsWith(g))) {
+            const localResponse = "Hello there! I'm VitaBot, your OQATA Wellness assistant. How can I help you with OQATA resources today?";
+            chatHistory.push({ role: 'model', parts: [{ text: localResponse }] });
+            const botMessage = addMessageToChat('...', 'bot');
+            displayAndSpeak(botMessage.id = `bot-${Date.now()}`, localResponse);
+            isSending = false;
+            return;
         }
 
-        window.addEventListener('hashchange', () => {
-            navigate(window.location.hash.substring(1));
-        });
+        // 1) Ask local OQATA knowledge endpoint first
+        chatElements.indicatorSpan.textContent = 'Checking OQATA resources...';
+        chatElements.typingIndicator.style.display = 'flex';
+        try {
+            const localResp = await fetch('/api/oqata-answer', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: userMessage, history: chatHistory }) });
+            const localJson = await localResp.json();
 
-        document.addEventListener('DOMContentLoaded', () => {
-            navigate(currentHash);
-        });
-
-        // Form submission simulation
-        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const button = document.getElementById('submit-btn');
-            button.textContent = 'Application Received! Benjamin will contact you. ✅';
-            button.classList.remove('bg-green-500', 'hover:bg-green-600');
-            button.classList.add('bg-blue-600');
-        });
-
-        // --- GEMINI API SETUP ---
-        const API_KEY = "";
-        const FLASH_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${API_KEY}`;
-        const TTS_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent?key=${API_KEY}`;
-
-        // Utility function for base64 decoding (for TTS)
-        function base64ToArrayBuffer(base64) {
-            const binary_string = window.atob(base64);
-            const len = binary_string.length;
-            const bytes = new Uint8Array(len);
-            for (let i = 0; i < len; i++) {
-                bytes[i] = binary_string.charCodeAt(i);
-            }
-            return bytes.buffer;
-        }
-
-        // Utility function to convert PCM audio to WAV format (for TTS)
-        function pcmToWav(pcm16, sampleRate = 16000) {
-            const numChannels = 1;
-            const bytesPerSample = 2; // 16-bit PCM
-            const wavData = new ArrayBuffer(44 + pcm16.length * bytesPerSample);
-            const view = new DataView(wavData);
-
-            // RIFF chunk descriptor
-            writeString(view, 0, 'RIFF'); // Chunk ID
-            view.setUint32(4, 36 + pcm16.length * bytesPerSample, true); // Chunk Size
-            writeString(view, 8, 'WAVE'); // Format
-
-            // FMT sub-chunk
-            writeString(view, 12, 'fmt '); // Sub-chunk 1 ID
-            view.setUint32(16, 16, true); // Sub-chunk 1 size (16 for PCM)
-            view.setUint16(20, 1, true); // Audio Format (1 for PCM)
-            view.setUint16(22, numChannels, true); // Num Channels
-            view.setUint32(24, sampleRate, true); // Sample Rate
-            view.setUint32(28, sampleRate * numChannels * bytesPerSample, true); // Byte Rate
-            view.setUint16(32, numChannels * bytesPerSample, true); // Block Align
-            view.setUint16(34, 16, true); // Bits per sample
-
-            // DATA sub-chunk
-            writeString(view, 36, 'data'); // Sub-chunk 2 ID
-            view.setUint32(40, pcm16.length * bytesPerSample, true); // Sub-chunk 2 size
-
-            // Write PCM data
-            for (let i = 0; i < pcm16.length; i++) {
-                view.setInt16(44 + i * bytesPerSample, pcm16[i], true);
-            }
-
-            return new Blob([wavData], { type: 'audio/wav' });
-
-            function writeString(view, offset, string) {
-                for (let i = 0; i < string.length; i++) {
-                    view.setUint8(offset + i, string.charCodeAt(i));
-                }
-            }
-        }
-
-        // --- GEMINI FEATURE 1: DREAM CHART GENERATOR (CONNECT PAGE) ---
-        async function generateDreamChart() {
-            const input = document.getElementById('commitment-textarea').value.trim();
-            const btn = document.getElementById('dream-chart-btn');
-            const outputDiv = document.getElementById('dream-chart-output');
-            const outputText = document.getElementById('dream-chart-text');
-
-            if (input.length < 20) {
-                outputText.textContent = "Please write a little more (at least 20 characters) about your goals for the best result!";
-                outputDiv.classList.remove('hidden');
+            if (localJson.source === 'local' && localJson.answer) {
+                const answer = localJson.answer;
+                chatHistory.push({ role: 'model', parts: [{ text: answer }] });
+                const botMessage = addMessageToChat('...', 'bot');
+                displayAndSpeak(botMessage.id = `bot-${Date.now()}`, answer);
+                isSending = false;
+                chatElements.typingIndicator.style.display = 'none';
                 return;
             }
 
-            btn.disabled = true;
-            btn.innerHTML = '<div class="gemini-loader"></div> Generating Vision...';
-
-            const userPrompt = `Analyze this person's stated desire for a life upgrade: "${input}". Based on their ambition, craft a powerful, 2-3 sentence personal mission statement and mantra. This statement should focus on duplication, freedom, and health, resonating with the VitaWell.Co values.`;
-            
-            const payload = {
-                contents: [{ parts: [{ text: userPrompt }] }],
-                systemInstruction: { parts: [{ text: "You are a professional life coach and vision architect. Be inspiring and succinct." }] },
-            };
-
-            try {
-                const response = await fetch(FLASH_API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                
-                const result = await response.json();
-                const mission = result.candidates?.[0]?.content?.parts?.[0]?.text || "Failed to generate statement. Please try again.";
-                
-                outputText.textContent = mission;
-                outputDiv.classList.remove('hidden');
-
-            } catch (error) {
-                console.error("Dream Chart Generation failed:", error);
-                outputText.textContent = "Error: Could not connect to the vision generator. Please check your connection.";
-                outputDiv.classList.remove('hidden');
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = '✨ Generate My Power Statement';
+            if (localJson.source === 'fallback' && localJson.answer) {
+                const notice = "Updated information:";
+                chatHistory.push({ role: 'model', parts: [{ text: notice + ' ' + localJson.answer }] });
+                const botMessage = addMessageToChat('...', 'bot');
+                displayAndSpeak(botMessage.id = `bot-${Date.now()}`, `${notice} ${localJson.answer}`);
+                isSending = false;
+                chatElements.typingIndicator.style.display = 'none';
+                return;
             }
-        }
 
-
-        // --- GEMINI FEATURE 2: HEALTH BENEFIT SUMMARIZER (FORMULA PAGE) ---
-        async function getHealthBenefit() {
-            const btn = document.getElementById('health-btn');
-            const outputP = document.getElementById('health-output');
-
-            btn.disabled = true;
-            btn.innerHTML = '<div class="gemini-loader"></div> Analyzing wellness data...';
-            outputP.textContent = '';
-            
-            const userPrompt = "Find a core health benefit of the OQATA Wellness Solutions products (like improved energy, gut health, or immunity) and summarize it into one aspirational sentence suitable for a covert marketing website.";
-            
-            const payload = {
-                contents: [{ parts: [{ text: userPrompt }] }],
-                tools: [{ "google_search": {} }], // Use search for grounding on wellness
-                systemInstruction: { parts: [{ text: "You are a wellness copywriter. Provide a concise, highly aspirational single sentence summary of a key health benefit, focusing on lifestyle results (e.g., 'Reclaim your focus and conquer your day without the afternoon slump.')." }] },
-            };
-
-            try {
-                const response = await fetch(FLASH_API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                const result = await response.json();
-                const benefit = result.candidates?.[0]?.content?.parts?.[0]?.text || "Health information unavailable. Check back later.";
-                
-                outputP.textContent = benefit;
-                // Note: Citation handling is omitted for simplicity in this visual presentation
-
-            } catch (error) {
-                console.error("Health Summarizer failed:", error);
-                outputP.textContent = "Error fetching health data. Please try again.";
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = '✨ Discover a Core Benefit';
+            // If server returned an error payload, surface it to the user for debugging
+            if (localJson.source === 'error') {
+                const errMsg = localJson.error || 'Unknown server error';
+                console.error('OQATA endpoint error:', errMsg);
+                addMessageToChat(`Error retrieving OQATA resources: ${errMsg}`, 'bot');
+                isSending = false;
+                chatElements.typingIndicator.style.display = 'none';
+                return;
             }
+
+            // Generic fallback
+            addMessageToChat('I could not find an answer in our OQATA resources.', 'bot');
+            isSending = false;
+            chatElements.typingIndicator.style.display = 'none';
+            return;
+        } catch (err) {
+            console.error('OQATA local fetch error:', err);
+            addMessageToChat(`I could not retrieve OQATA resources right now. (${err.message})`, 'bot');
+            isSending = false;
+            chatElements.typingIndicator.style.display = 'none';
         }
+    }
 
-        // --- GEMINI FEATURE 3: TTS TESTIMONIAL SPEAKER (PROOF PAGE) ---
-        async function speakTestimonial(id) {
-            const testimonialElement = document.getElementById(id);
-            const textToSpeak = testimonialElement.querySelector('.testimonial-text').textContent.trim();
-            const button = testimonialElement.querySelector('button');
-
-            button.disabled = true;
-            const originalText = button.innerHTML;
-            button.innerHTML = '<div class="gemini-loader"></div> Speaking...';
-
-            const payload = {
-                contents: [{
-                    parts: [{ text: `Say in a confident, clear voice: ${textToSpeak}` }]
-                }],
-                generationConfig: {
-                    responseModalities: ["AUDIO"],
-                    speechConfig: {
-                        voiceConfig: {
-                            prebuiltVoiceConfig: { voiceName: "Kore" } // Kore voice: Firm
-                        }
-                    }
-                },
-                model: "gemini-2.5-flash-preview-tts"
-            };
-
-            try {
-                const response = await fetch(TTS_API_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                
-                const result = await response.json();
-                const part = result?.candidates?.[0]?.content?.parts?.[0];
-                const audioData = part?.inlineData?.data;
-                const mimeType = part?.inlineData?.mimeType; // Should be audio/L16;rate=16000
-
-                if (audioData && mimeType && mimeType.startsWith("audio/L16")) {
-                    const sampleRate = parseInt(mimeType.match(/rate=(\d+)/)[1], 10);
-                    const pcmData = base64ToArrayBuffer(audioData);
-                    const pcm16 = new Int16Array(pcmData);
-                    const wavBlob = pcmToWav(pcm16, sampleRate);
-                    const audioUrl = URL.createObjectURL(wavBlob);
-                    
-                    const audio = new Audio(audioUrl);
-                    audio.play();
-
-                    audio.onended = () => {
-                        button.disabled = false;
-                        button.innerHTML = originalText;
-                    };
-                } else {
-                    throw new Error("Invalid audio response structure or MIME type.");
-                }
-
-            } catch (error) {
-                console.error("TTS failed:", error);
-                button.innerHTML = 'TTS Failed';
-                setTimeout(() => {
-                    button.disabled = false;
-                    button.innerHTML = originalText;
-                }, 2000);
-            }
+    function startSpeechRecognition() {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SpeechRecognition) {
+            alert("Sorry, your browser doesn't support voice input.");
+            return;
         }
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+        const micIcon = chatElements.micBtn.querySelector('i');
+        recognition.onstart = () => { micIcon.classList.add('text-red-500', 'fa-beat'); };
+        recognition.onend = () => { micIcon.classList.remove('text-red-500', 'fa-beat'); };
+        recognition.onerror = (event) => { console.error("Speech recognition error:", event.error); };
+        recognition.onresult = (event) => {
+            chatElements.input.value = event.results[0][0].transcript;
+            sendMessage();
+        };
+        recognition.start();
+    }
 
-
-        // --- CHATBOT LOGIC (UNCHANGED) ---
-        
-        const chatToggle = document.getElementById('chat-toggle');
-        const chatClose = document.getElementById('chat-close');
-        const chatWindow = document.getElementById('chat-window');
-        const chatMessages = document.getElementById('chat-messages');
-        const chatInput = document.getElementById('chat-input');
-        const typingIndicator = document.getElementById('typing-indicator');
-
-        chatToggle.addEventListener('click', () => {
-            chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
-            chatToggle.style.display = chatWindow.style.display === 'flex' ? 'none' : 'block';
-        });
-
-        chatClose.addEventListener('click', () => {
-            chatWindow.style.display = 'none';
-            chatToggle.style.display = 'block';
-        });
-        
-        // Chat history storage (for multi-turn conversation)
-        let chatHistory = [];
-        
-        // System instruction for the covert chatbot persona
-        const systemPrompt = `You are 'VitaBot,' a friendly, knowledgeable AI assistant for VitaWell.Co, a company founded by Benjamin Ainamani (an ex-ICT teacher). Your primary role is to filter, engage, and nurture leads interested in 'The Life Upgrade Formula' (which combines holistic wellness and a modern collaborative income model). 
-        
-          Rules for Conversation:
-        1. NEVER: use the terms 'MLM,' 'Network Marketing,' 'Recruitment,' or 'OQATA.' Use 'Growth Partnership,' 'Collaborative Income Model,' 'Duplication System,' or 'VitaWell.Co Team.'
-        2. Persona: Be supportive, professional, and enthusiastic.
-        3. Answering: Answer questions about better health, financial balance, and the benefits of the partnership.
-        4. Conversion: If a user asks for pricing, specific sign-up steps, or the full business details, direct them immediately to the 'Connect' page on this website to fill out the form for a personal call with Benjamin Ainamani. Use phrases like, 'For exclusive partnership details and to get started, please submit your application on our Connect page.'`;
-
-        function addMessageToChat(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `chat-message p-3 max-w-[85%] text-sm rounded-xl shadow-md ${sender === 'user' ? 'user ml-auto' : 'bot mr-auto'}`;
-            messageDiv.textContent = text;
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to latest message
-        }
-
-        async function sendMessage() {
-            const userMessage = chatInput.value.trim();
-            if (userMessage === '') return;
-
-            addMessageToChat(userMessage, 'user');
-            chatInput.value = '';
-
-            // Add user message to history
-            chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
-            
-            typingIndicator.classList.remove('hidden');
-
-            const payload = {
-                contents: chatHistory,
-                systemInstruction: { parts: [{ text: systemPrompt }] },
-            };
-
-            const maxRetries = 3;
-            let currentDelay = 1000;
-
-            for (let i = 0; i < maxRetries; i++) {
-                try {
-                    const response = await fetch(FLASH_API_URL, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        if (response.status === 429 && i < maxRetries - 1) { // Rate limit hit
-                            await new Promise(resolve => setTimeout(resolve, currentDelay));
-                            currentDelay *= 2; // Exponential backoff
-                            continue;
-                        }
-                        throw new Error(`API error: ${response.status}`);
-                    }
-
-                    const result = await response.json();
-                    const aiText = result.candidates?.[0]?.content?.parts?.[0]?.text || "Sorry, I couldn't generate a response right now. Please try again or fill out the Connect form.";
-                    
-                    addMessageToChat(aiText, 'bot');
-                    chatHistory.push({ role: "model", parts: [{ text: aiText }] });
-                    typingIndicator.classList.add('hidden');
-                    return; // Success
-                } catch (error) {
-                    console.error("Gemini API call failed:", error);
-                    typingIndicator.classList.add('hidden');
-                    addMessageToChat("I'm having trouble connecting right now. Please refresh the page or use the Contact form.", 'bot');
-                    return; // Failure after retries or non-rate limit error
-                }
-            }
-        }
-    </script>
+    // --- INITIALIZE THE APP ---
+    initializeApp();
+});
+</script>
 </body>
 </html>

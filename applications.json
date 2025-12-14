@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1765389322838,
+    "name": "AINAMANI",
+    "email": "ainamanibenjamin@gmail.com",
+    "phone": "0755641462",
+    "submittedAt": "2025-12-10T17:55:22.838Z"
+  },
+  {
+    "id": 1765390528945,
+    "name": "AINAMANI",
+    "email": "ben@suu.com",
+    "phone": "0755641462",
+    "submittedAt": "2025-12-10T18:15:28.945Z"
+  },
+  {
+    "id": 1765417796405,
+    "name": "John Test",
+    "email": "john@example.com",
+    "phone": "+256700000001",
+    "status": "received",
+    "submittedAt": "2025-12-11T01:49:56.405Z"
+  },
+  {
+    "id": 1765470544908,
+    "name": "AINAMANI BENJAMIN",
+    "email": "clientdemo@gmail.com",
+    "phone": "+236700239737",
+    "status": "received",
+    "submittedAt": "2025-12-11T16:29:04.908Z"
+  }
+]
