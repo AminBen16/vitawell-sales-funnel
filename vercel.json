@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "VitaBlog/server/index.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["VitaBlog/server/**", "VitaBlog/package.json", "VitaBlog/package-lock.json", "VitaBlog/.env.example"] }
+    },
+    {
+      "src": "VitaBlog/client/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "VitaBlog/server/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "VitaBlog/client/index.html"
+    }
+  ],
+  "installCommand": "npm install --prefix VitaBlog",
+  "buildCommand": "echo 'No frontend build command needed if client directory is pre-built or simple static HTML.'"
+}
