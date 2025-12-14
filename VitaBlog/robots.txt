@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /api/products
+Allow: /api/opportunities
+Disallow: /admin
+Disallow: /api/auth
+Disallow: /api/users
+
+Sitemap: https://vitablog.co/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1

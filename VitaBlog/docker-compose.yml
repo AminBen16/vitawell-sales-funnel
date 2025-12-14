@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: vitablog_postgres
+    environment:
+      POSTGRES_DB: vitablog
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - vitablog_network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: vitablog_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@vitablog.co
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - vitablog_network
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vitablog_api
+    environment:
+      NODE_ENV: development
+      DB_NAME: vitablog
+      DB_USER: postgres
+      DB_PASSWORD: password
+      DB_HOST: postgres
+      DB_PORT: 5432
+      JWT_SECRET: your-secret-key-change-in-production
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+      - /app/node_modules
+    networks:
+      - vitablog_network
+    command: npm run dev
+
+volumes:
+  postgres_data:
+
+networks:
+  vitablog_network:
+    driver: bridge
