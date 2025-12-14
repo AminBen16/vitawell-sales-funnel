@@ -62,25 +62,8 @@
     }
     </script>
     
-    <!-- Tailwind CSS CDN - Using Play CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        // Configure Tailwind when it loads
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof tailwind !== 'undefined') {
-                tailwind.config = {
-                    theme: {
-                        extend: {
-                            colors: {
-                                'vita-blue': '#1e40af',
-                                'vita-green': '#16a34a',
-                            }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+    <!-- Tailwind CSS - Loaded locally -->
+    <link rel="stylesheet" href="/styles.css">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

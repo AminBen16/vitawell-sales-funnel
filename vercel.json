@@ -19,7 +19,7 @@
       "use": "@vercel/static"
     },
     {
-      "src": "styles.css",
+      "src": "dist/styles.css",
       "use": "@vercel/static"
     }
   ],
@@ -38,7 +38,7 @@
     },
     {
       "src": "/styles.css",
-      "dest": "styles.css"
+      "dest": "dist/styles.css"
     },
     {
       "src": "/(.*)",
