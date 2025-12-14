@@ -6,10 +6,6 @@
       "use": "@vercel/node"
     },
     {
-      "src": "blog-server.js",
-      "use": "@vercel/node"
-    },
-    {
       "src": "VitaBlog/server/index.js",
       "use": "@vercel/node",
       "config": { "includeFiles": ["VitaBlog/server/**", "VitaBlog/package.json", "VitaBlog/package-lock.json", "VitaBlog/.env.example"] }
@@ -39,10 +35,6 @@
     {
       "src": "/api/main/(.*)",
       "dest": "server.js"
-    },
-    {
-      "src": "/api/blog/(.*)",
-      "dest": "blog-server.js"
     },
     {
       "src": "/api/vitablog/(.*)",

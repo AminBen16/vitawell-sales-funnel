@@ -307,7 +307,7 @@ app.post('/api/oqata-answer', async (req, res) => {
         let systemPrompt = '';
         try { systemPrompt = fs.readFileSync(path.join(__dirname, 'oqata_system_prompt.txt'), 'utf8'); } catch (e) { systemPrompt = ''; }
 
-        const geminiResp = await fetch(`http://localhost:${port}/api/gemini`, {
+        const geminiResp = await fetch(`/api/gemini`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
