@@ -41,7 +41,7 @@ app.use(helmet({
       scriptSrcAttr: ["'unsafe-inline'", "'unsafe-hashes'"],
       fontSrc: ["'self'", "https://fonts.gstatic.com", "https://cdnjs.cloudflare.com"],
       imgSrc: ["'self'", "data:", "https:", "http:"],
-      connectSrc: ["'self'", "*"],
+      connectSrc: ["'self'", "http://localhost:5001", "http://localhost:3000"],
     },
   },
 }));
@@ -76,8 +76,11 @@ const limiter = rateLimit({
 });
 app.use('/api/', limiter);
 
+// Static files for uploads
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
 // Serve frontend static files
-// app.use(express.static(path.join(__dirname, '../client')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 // API Routes
 app.use('/api/auth', authRoutes);
@@ -93,12 +96,11 @@ app.get('/api/health', (req, res) => {
 });
 
 // Serve frontend for all non-API routes (must be after API routes)
-// This block is commented out because Vercel's static routing handles index.html for /vitablog/(.*)
-// app.get('*', (req, res) => {
-//   if (!req.path.startsWith('/api') && !req.path.startsWith('/uploads')) {
-//     res.sendFile(path.join(__dirname, '../client/index.html'));
-//   }
-// });
+app.get('*', (req, res) => {
+  if (!req.path.startsWith('/api') && !req.path.startsWith('/uploads')) {
+    res.sendFile(path.join(__dirname, '../client/index.html'));
+  }
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
