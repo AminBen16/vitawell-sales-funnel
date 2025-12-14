@@ -62,32 +62,248 @@
     }
     </script>
     
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Tailwind CSS CDN - Using Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Configure Tailwind when it loads
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof tailwind !== 'undefined') {
+                tailwind.config = {
+                    theme: {
+                        extend: {
+                            colors: {
+                                'vita-blue': '#1e40af',
+                                'vita-green': '#16a34a',
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .page { display: none; min-height: calc(100vh - 80px); }
-        .page.active { display: block; }
-        .cta-button { transition: all 0.3s ease; }
-        .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 16px rgba(22, 163, 74, 0.3); }
-        .product-card { transition: all 0.3s ease; }
-        .product-card:hover { transform: translateY(-4px); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            scroll-behavior: smooth;
+            background-color: #f9fafb;
+            color: #1f2937;
+            line-height: 1.6;
+        }
+        
+        .page { 
+            display: none; 
+            min-height: calc(100vh - 80px);
+            padding-top: 20px;
+        }
+        
+        .page.active { 
+            display: block; 
+            animation: fadeIn 0.3s ease-in; 
+        }
+        
+        @keyframes fadeIn { 
+            from { opacity: 0; transform: translateY(10px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+        
+        .cta-button { 
+            transition: all 0.3s ease; 
+            cursor: pointer;
+        }
+        
+        .cta-button:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 16px rgba(22, 163, 74, 0.3); 
+        }
+        
+        .product-card { 
+            transition: all 0.3s ease; 
+            cursor: pointer;
+        }
+        
+        .product-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+        }
+        
+        /* Navigation */
+        nav a {
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: #16a34a !important;
+        }
+        
+        /* Form Elements */
+        input, textarea, select {
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            width: 100%;
+            font-family: inherit;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        /* Toast Notifications */
+        .toast { 
+            position: fixed; 
+            top: 20px; 
+            right: 20px; 
+            padding: 16px 24px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+            z-index: 10000; 
+            animation: slideIn 0.3s ease-out;
+            font-weight: 500;
+        }
+        
+        @keyframes slideIn { 
+            from { transform: translateX(400px); opacity: 0; } 
+            to { transform: translateX(0); opacity: 1; } 
+        }
+        
+        .toast.success { background: #10b981; color: white; }
+        .toast.error { background: #ef4444; color: white; }
+        .toast.info { background: #3b82f6; color: white; }
+        
+        /* Loading Spinner */
+        .spinner { 
+            border: 3px solid #f3f3f3; 
+            border-top: 3px solid #10b981; 
+            border-radius: 50%; 
+            width: 40px; 
+            height: 40px; 
+            animation: spin 1s linear infinite; 
+            margin: 20px auto; 
+        }
+        
+        @keyframes spin { 
+            0% { transform: rotate(0deg); } 
+            100% { transform: rotate(360deg); } 
+        }
+        
+        /* Post Card */
+        .post-card { 
+            transition: all 0.3s ease; 
+        }
+        
+        .post-card:hover { 
+            transform: translateY(-5px); 
+        }
+        
+        /* Line clamp utility */
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        
+        /* Prose styling for blog content */
+        .prose {
+            max-width: none;
+        }
+        
+        .prose p {
+            margin-bottom: 1rem;
+        }
+        
+        .prose h1, .prose h2, .prose h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .prose strong {
+            font-weight: 600;
+        }
+        
+        .prose em {
+            font-style: italic;
+        }
+        
+        /* Smooth transitions */
+        * { 
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s; 
+        }
+        
+        /* Ensure header stays on top */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        /* Fix for images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800" style="font-family: 'Inter', sans-serif;">
+    <!-- Test if Tailwind is loading -->
+    <script>
+        // Check if Tailwind loaded
+        window.addEventListener('load', function() {
+            if (typeof tailwind === 'undefined') {
+                console.warn('Tailwind CSS CDN failed to load. Using fallback styles.');
+                // Add a class to body to indicate fallback mode
+                document.body.classList.add('tailwind-fallback');
+            } else {
+                console.log('Tailwind CSS loaded successfully');
+            }
+        });
+    </script>
 
 <!-- Header Navigation -->
 <header class="sticky top-0 z-50 bg-white shadow">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
         <h1 class="text-2xl font-extrabold text-blue-700">VitaBlog<span class="text-green-600">.Co</span></h1>
         <nav class="flex gap-4 items-center">
+            <a href="http://localhost:3000" target="_blank" class="nav-link text-gray-600 hover:text-blue-600 font-semibold"><i class="fas fa-home mr-1"></i>Back to VitaWell.Co</a>
             <a href="#home" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="home">Home</a>
+            <a href="#blog" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="blog">Blog</a>
             <a href="#products" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="products">Products</a>
             <a href="#opportunities" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="opportunities">Opportunities</a>
             <a href="#about" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="about">About</a>
-            <a href="#login" class="nav-link px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700" data-page="login">Sign In</a>
+            <span id="user-menu" class="hidden items-center gap-2">
+                <a href="#create-post" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="create-post">New Post</a>
+                <a href="#admin-dashboard" class="nav-link text-gray-600 hover:text-green-600 font-semibold" data-page="admin-dashboard">Dashboard</a>
+                <button onclick="logout()" class="nav-link px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700">Logout</button>
+            </span>
+            <a href="#login" id="login-link" class="nav-link px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700" data-page="login">Sign In</a>
         </nav>
     </div>
 </header>
@@ -98,8 +314,8 @@
         <h2 class="text-4xl md:text-5xl font-extrabold mb-6">Unlock Premium Wellness & Income Opportunities</h2>
         <p class="text-xl mb-8 opacity-90">Discover curated products and collaborative business opportunities from Benjamin Ainamani, founder of VitaWell.Co</p>
         <div class="flex gap-4 justify-center">
-            <button class="px-8 py-3 bg-white text-green-600 font-bold rounded-lg hover:bg-gray-100 cta-button">Explore Products</button>
-            <button class="px-8 py-3 bg-green-800 text-white font-bold rounded-lg hover:bg-green-900 cta-button">View Opportunities</button>
+            <button onclick="navigate('products')" class="px-8 py-3 bg-white text-green-600 font-bold rounded-lg hover:bg-gray-100 cta-button">Explore Products</button>
+            <button onclick="navigate('opportunities')" class="px-8 py-3 bg-green-800 text-white font-bold rounded-lg hover:bg-green-900 cta-button">View Opportunities</button>
         </div>
     </div>
 </section>
@@ -128,6 +344,115 @@
     </div>
 </section>
 
+<!-- BLOG PAGE -->
+<section id="blog" class="page py-16">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-extrabold mb-4">Latest Blog Posts</h2>
+        <p class="text-gray-600 mb-8">Insights, tips, and updates from our team</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="blog-grid">
+            <!-- Blog posts loaded via JS -->
+        </div>
+    </div>
+</section>
+
+<!-- SINGLE POST PAGE -->
+<section id="single-post" class="page py-16">
+    <div class="max-w-4xl mx-auto px-4">
+        <button onclick="navigate('blog')" class="mb-6 text-blue-600 hover:text-blue-800 font-semibold">← Back to Blog</button>
+        <article id="post-content" class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Post content loaded via JS -->
+        </article>
+        
+        <!-- Social Sharing -->
+        <div class="mt-8 bg-white p-6 rounded-lg shadow">
+            <h3 class="text-xl font-bold mb-4">Share this post</h3>
+            <div class="flex gap-4" id="social-share-buttons">
+                <!-- Social buttons loaded via JS -->
+            </div>
+        </div>
+        
+        <!-- Comments Section -->
+        <div class="mt-8 bg-white p-6 rounded-lg shadow" id="comments-section">
+            <h3 class="text-xl font-bold mb-4">Comments</h3>
+            <div id="comments-list" class="mb-6">
+                <!-- Comments loaded via JS -->
+            </div>
+            <div id="comment-form-container">
+                <!-- Comment form loaded via JS -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CREATE/EDIT POST PAGE -->
+<section id="create-post" class="page py-16">
+    <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-extrabold mb-6" id="post-form-title">Create New Post</h2>
+        <div class="bg-white p-8 rounded-lg shadow">
+            <form id="post-form" onsubmit="savePost(event)">
+                <input type="hidden" id="post-id">
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Title *</label>
+                    <input type="text" id="post-title" required class="w-full px-4 py-2 border rounded-lg">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Excerpt</label>
+                    <textarea id="post-excerpt" rows="3" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Content *</label>
+                    <div id="post-content-editor" style="min-height: 400px;"></div>
+                    <input type="hidden" id="post-content-hidden" required>
+                </div>
+                <div class="mb-4 grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Category</label>
+                        <input type="text" id="post-category" placeholder="e.g., Health, Business" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 font-semibold mb-2">Tags (comma-separated)</label>
+                        <input type="text" id="post-tags" placeholder="e.g., wellness, tips, guide" class="w-full px-4 py-2 border rounded-lg">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 font-semibold mb-2">Featured Image</label>
+                    <div class="flex items-center gap-4">
+                        <input type="file" id="post-image-input" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+                        <button type="button" onclick="document.getElementById('post-image-input').click()" class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">Choose Image</button>
+                        <span id="image-status" class="text-gray-600"></span>
+                    </div>
+                    <div id="image-preview" class="mt-4 hidden">
+                        <img id="preview-img" src="" alt="Preview" class="max-w-md rounded-lg">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="flex items-center gap-2">
+                        <input type="checkbox" id="post-published" class="w-5 h-5">
+                        <span class="text-gray-700 font-semibold">Publish immediately</span>
+                    </label>
+                </div>
+                <div class="flex gap-4">
+                    <button type="submit" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold">Save Post</button>
+                    <button type="button" onclick="navigate('blog')" class="px-6 py-3 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 font-semibold">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- SUBSCRIBE SECTION (on home page) -->
+<div id="subscribe-section" class="bg-gradient-to-r from-green-600 to-blue-600 text-white py-12 mt-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+        <h3 class="text-2xl font-bold mb-4">Subscribe to Our Blog</h3>
+        <p class="mb-6 opacity-90">Get the latest posts and updates delivered to your inbox</p>
+        <form onsubmit="subscribe(event)" class="flex gap-2 max-w-md mx-auto">
+            <input type="email" id="subscriber-email" placeholder="Your email address" required class="flex-1 px-4 py-2 rounded-lg text-gray-800">
+            <button type="submit" class="px-6 py-2 bg-white text-green-600 rounded-lg hover:bg-gray-100 font-semibold">Subscribe</button>
+        </form>
+    </div>
+</div>
+
 <!-- ABOUT PAGE -->
 <section id="about" class="page py-16">
     <div class="max-w-4xl mx-auto px-4">
@@ -145,14 +470,49 @@
     <div class="bg-white p-8 rounded-lg shadow max-w-md w-full">
         <h2 class="text-2xl font-extrabold mb-6">Sign In to VitaBlog</h2>
         
-        <!-- Email Auth Option -->
+        <!-- OAuth Options -->
         <div class="mb-6">
+            <h3 class="font-semibold mb-3 text-center text-gray-600">Quick Sign In</h3>
+            <div class="flex flex-col gap-3">
+                <a href="/api/auth/google" class="w-full px-4 py-3 bg-white border-2 border-gray-300 rounded-lg hover:bg-gray-50 font-semibold flex items-center justify-center gap-3 transition-colors">
+                    <i class="fab fa-google text-red-500 text-xl"></i>
+                    <span>Continue with Google</span>
+                </a>
+                <a href="/api/auth/github" class="w-full px-4 py-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 font-semibold flex items-center justify-center gap-3 transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                    <span>Continue with GitHub</span>
+                </a>
+            </div>
+            <div class="relative my-6">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Email Auth Option -->
+        <div class="mb-6" id="email-auth-section">
             <h3 class="font-semibold mb-3">Sign in with VitaWell Appointment</h3>
             <input type="email" id="email-login" placeholder="Enter your email" class="w-full px-4 py-2 border rounded-lg mb-3">
             <button onclick="emailAuth()" class="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold">Sign In via Email</button>
         </div>
         
-        <div class="border-t pt-6">
+        <!-- Verification Code Section (hidden by default) -->
+        <div class="mb-6 hidden" id="verification-section">
+            <h3 class="font-semibold mb-3 text-center">Enter Verification Code</h3>
+            <p class="text-sm text-gray-600 mb-4 text-center" id="verification-email-text">We sent a 6-digit code to <strong id="verification-email"></strong></p>
+            <div class="flex gap-2 mb-3">
+                <input type="text" id="verification-code" placeholder="000000" maxlength="6" class="flex-1 px-4 py-3 border-2 border-blue-500 rounded-lg text-center text-2xl font-bold tracking-widest" style="letter-spacing: 0.5em;">
+            </div>
+            <button onclick="verifyCode()" class="w-full px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold mb-2">Verify Code</button>
+            <button onclick="resendCode()" class="w-full px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 font-semibold text-sm">Resend Code</button>
+            <button onclick="cancelVerification()" class="w-full px-4 py-2 text-gray-600 hover:text-gray-800 text-sm mt-2">← Back</button>
+        </div>
+        
+        <div class="border-t pt-6" id="register-section">
             <h3 class="font-semibold mb-3">Or create an account</h3>
             <input type="email" id="new-email" placeholder="Email" class="w-full px-4 py-2 border rounded-lg mb-2">
             <input type="password" id="new-password" placeholder="Password" class="w-full px-4 py-2 border rounded-lg mb-2">
@@ -170,21 +530,27 @@
         
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-4 mb-8">
             <div class="bg-white p-6 rounded-lg shadow">
+                <h3 class="text-gray-600 font-semibold">Total Posts</h3>
+                <p class="text-3xl font-bold" id="total-posts">0</p>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow">
                 <h3 class="text-gray-600 font-semibold">Total Products</h3>
                 <p class="text-3xl font-bold" id="total-products">0</p>
             </div>
             <div class="bg-white p-6 rounded-lg shadow">
-                <h3 class="text-gray-600 font-semibold">Total Opportunities</h3>
-                <p class="text-3xl font-bold" id="total-opportunities">0</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow">
-                <h3 class="text-gray-600 font-semibold">Active Users</h3>
-                <p class="text-3xl font-bold" id="total-users">0</p>
+                <h3 class="text-gray-600 font-semibold">Subscribers</h3>
+                <p class="text-3xl font-bold" id="total-subscribers">0</p>
             </div>
             <div class="bg-white p-6 rounded-lg shadow">
                 <h3 class="text-gray-600 font-semibold">Pending Comments</h3>
                 <p class="text-3xl font-bold" id="pending-comments">0</p>
             </div>
+        </div>
+        
+        <div class="mb-6">
+            <a href="#create-post" onclick="navigate('create-post')" class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold inline-block mb-4">
+                <i class="fas fa-plus"></i> Create New Blog Post
+            </a>
         </div>
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -206,9 +572,24 @@
 </section>
 
 <script>
-    const API_URL = '/api/vitablog';
+    // Detect if running from file:// or server, and set API URL accordingly
+    let API_URL = '/api';
+    if (window.location.protocol === 'file:') {
+        // If opened directly from file system, use the server URL
+        API_URL = 'http://localhost:5001/api';
+        console.warn('⚠️ Detected file:// protocol. Using server URL:', API_URL);
+        console.warn('💡 Tip: Access the blog through http://localhost:5001 instead');
+    } else if (window.location.origin) {
+        // Use the same origin for API calls
+        API_URL = window.location.origin + '/api';
+    }
+    
+    console.log('🌐 API_URL set to:', API_URL);
+    console.log('🌐 Current location:', window.location.href);
+    
     let currentUser = null;
     let token = null;
+    let editingPostId = null;
 
     // Navigation
     document.querySelectorAll('.nav-link').forEach(link => {
@@ -220,17 +601,68 @@
 
     function navigate(page) {
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        document.getElementById(page).classList.add('active');
+        const targetPage = document.getElementById(page);
+        if (targetPage) {
+            targetPage.classList.add('active');
+        }
         
-        if (page === 'admin-dashboard' && !token) {
+        if ((page === 'admin-dashboard' || page === 'create-post') && !token) {
             navigate('login');
             alert('Please log in first');
+            return;
+        }
+        
+        if (page === 'blog') {
+            loadBlogPosts();
+        }
+        
+        if (page === 'products') {
+            loadProducts();
+        }
+        
+        if (page === 'opportunities') {
+            // Small delay to ensure page is rendered
+            setTimeout(() => {
+                loadOpportunities();
+            }, 100);
+        }
+        
+        updateUserMenu();
+    }
+    
+    function updateUserMenu() {
+        const userMenu = document.getElementById('user-menu');
+        const loginLink = document.getElementById('login-link');
+        if (token && currentUser) {
+            userMenu.classList.remove('hidden');
+            userMenu.classList.add('flex');
+            loginLink.classList.add('hidden');
+        } else {
+            userMenu.classList.add('hidden');
+            userMenu.classList.remove('flex');
+            loginLink.classList.remove('hidden');
         }
     }
+    
+    function logout() {
+        token = null;
+        currentUser = null;
+        localStorage.removeItem('token');
+        updateUserMenu();
+        navigate('home');
+    }
 
-    // Email Authentication
+    // Store pending email for verification
+    let pendingVerificationEmail = null;
+
+    // Email Authentication - sends verification code
     async function emailAuth() {
-        const email = document.getElementById('email-login').value;
+        const email = document.getElementById('email-login').value.trim();
+        if (!email) {
+            alert('Please enter your email address');
+            return;
+        }
+
         try {
             const res = await fetch(`${API_URL}/auth/email-auth`, {
                 method: 'POST',
@@ -239,26 +671,34 @@
             });
             const data = await res.json();
             if (res.ok) {
-                token = data.token;
-                currentUser = data.user;
-                localStorage.setItem('token', token);
-                alert('✅ Signed in successfully!');
-                navigate('home');
+                pendingVerificationEmail = email;
+                showVerificationForm(email, 'login');
+                alert('✅ Verification code sent to your email! Please check your inbox.');
             } else {
-                alert('❌ ' + data.error);
+                alert('❌ ' + (data.error || 'Authentication failed'));
             }
         } catch (error) {
             console.error('Email auth error:', error);
-            alert('Error during sign in');
+            alert('Error during sign in. Please try again.');
         }
     }
 
-    // Register
+    // Register - sends verification code
     async function register() {
-        const email = document.getElementById('new-email').value;
+        const email = document.getElementById('new-email').value.trim();
         const password = document.getElementById('new-password').value;
-        const firstName = document.getElementById('first-name').value;
-        const lastName = document.getElementById('last-name').value;
+        const firstName = document.getElementById('first-name').value.trim();
+        const lastName = document.getElementById('last-name').value.trim();
+        
+        if (!email || !password || !firstName || !lastName) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        if (password.length < 6) {
+            alert('Password must be at least 6 characters');
+            return;
+        }
         
         try {
             const res = await fetch(`${API_URL}/auth/register`, {
@@ -268,53 +708,232 @@
             });
             const data = await res.json();
             if (res.ok) {
-                token = data.token;
-                currentUser = data.user;
-                localStorage.setItem('token', token);
-                alert('✅ Registration successful!');
-                navigate('home');
+                pendingVerificationEmail = email;
+                showVerificationForm(email, 'signup');
+                alert('✅ Verification code sent to your email! Please check your inbox to complete registration.');
             } else {
-                alert('❌ ' + data.error);
+                alert('❌ ' + (data.error || 'Registration failed'));
             }
         } catch (error) {
             console.error('Register error:', error);
-            alert('Error during registration');
+            alert('Error during registration. Please try again.');
+        }
+    }
+
+    // Show verification form
+    function showVerificationForm(email, type) {
+        document.getElementById('email-auth-section').classList.add('hidden');
+        document.getElementById('register-section').classList.add('hidden');
+        document.getElementById('verification-section').classList.remove('hidden');
+        document.getElementById('verification-email').textContent = email;
+        document.getElementById('verification-code').value = '';
+        document.getElementById('verification-code').focus();
+        pendingVerificationEmail = email;
+    }
+
+    // Cancel verification and go back
+    function cancelVerification() {
+        document.getElementById('verification-section').classList.add('hidden');
+        document.getElementById('email-auth-section').classList.remove('hidden');
+        document.getElementById('register-section').classList.remove('hidden');
+        pendingVerificationEmail = null;
+    }
+
+    // Verify code
+    async function verifyCode() {
+        const code = document.getElementById('verification-code').value.trim();
+        const email = pendingVerificationEmail;
+
+        if (!code || code.length !== 6) {
+            alert('Please enter the 6-digit verification code');
+            return;
+        }
+
+        if (!email) {
+            alert('Email not found. Please start over.');
+            cancelVerification();
+            return;
+        }
+
+        try {
+            const res = await fetch(`${API_URL}/auth/verify-code`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, code })
+            });
+            const data = await res.json();
+            
+            if (res.ok) {
+                token = data.token;
+                currentUser = data.user;
+                localStorage.setItem('token', token);
+                updateUserMenu();
+                cancelVerification();
+                alert('✅ ' + data.message);
+                navigate('home');
+            } else {
+                alert('❌ ' + (data.error || 'Verification failed'));
+            }
+        } catch (error) {
+            console.error('Verify code error:', error);
+            alert('Error verifying code. Please try again.');
+        }
+    }
+
+    // Resend verification code
+    async function resendCode() {
+        const email = pendingVerificationEmail;
+        if (!email) {
+            alert('Email not found. Please start over.');
+            return;
+        }
+
+        try {
+            const res = await fetch(`${API_URL}/auth/resend-code`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            const data = await res.json();
+            
+            if (res.ok) {
+                alert('✅ ' + data.message);
+                document.getElementById('verification-code').value = '';
+                document.getElementById('verification-code').focus();
+            } else {
+                alert('❌ ' + (data.error || 'Failed to resend code'));
+            }
+        } catch (error) {
+            console.error('Resend code error:', error);
+            alert('Error resending code. Please try again.');
         }
     }
 
     // Load products
     async function loadProducts() {
+        const grid = document.getElementById('products-grid');
+        if (!grid) return;
+        
+        // Show loading state
+        grid.innerHTML = '<div class="col-span-3 text-center py-12"><div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div><p class="mt-4 text-gray-600">Loading products...</p></div>';
+        
         try {
-            const res = await fetch(`${API_URL}/products`);
+            console.log('🛍️ Fetching products from:', `${API_URL}/products`);
+            const res = await fetch(`${API_URL}/products`, {
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                mode: 'cors'
+            });
+            
+            if (!res.ok) {
+                throw new Error(`HTTP error! status: ${res.status}`);
+            }
+            
             const data = await res.json();
-            const grid = document.getElementById('products-grid');
-            grid.innerHTML = data.products.map(p => `
-                <div class="bg-white p-6 rounded-lg shadow product-card">
-                    <h3 class="text-xl font-bold mb-2">${p.title}</h3>
-                    <p class="text-gray-600 mb-4">${p.description}</p>
-                    <p class="text-2xl font-bold text-green-600">$${p.price || 'FREE'}</p>
-                </div>
-            `).join('');
+            console.log('✅ Products data received:', data);
+            
+            if (data.products && data.products.length > 0) {
+                grid.innerHTML = data.products.map(p => `
+                    <div class="bg-white p-6 rounded-lg shadow product-card cursor-pointer hover:shadow-xl transition-shadow">
+                        ${p.image ? `<img src="${p.image}" alt="${p.title}" class="w-full h-48 object-cover rounded-lg mb-4">` : '<div class="w-full h-48 bg-gradient-to-br from-blue-500 to-green-500 rounded-lg mb-4 flex items-center justify-center"><i class="fas fa-box text-white text-6xl opacity-50"></i></div>'}
+                        <h3 class="text-xl font-bold mb-2">${p.title}</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">${p.description || ''}</p>
+                        <div class="flex items-center justify-between">
+                            <p class="text-2xl font-bold text-green-600">$${p.price || 'FREE'}</p>
+                            ${p.category ? `<span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold">${p.category}</span>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                grid.innerHTML = `
+                    <div class="col-span-3 text-center py-12">
+                        <i class="fas fa-box text-gray-300 text-6xl mb-4"></i>
+                        <p class="text-gray-600 text-lg mb-2">No products available yet</p>
+                        <p class="text-gray-500">Check back soon for new products!</p>
+                    </div>
+                `;
+            }
         } catch (error) {
-            console.error('Load products error:', error);
+            console.error('❌ Load products error:', error);
+            grid.innerHTML = `
+                <div class="col-span-3 text-center py-12">
+                    <i class="fas fa-exclamation-triangle text-red-400 text-5xl mb-4"></i>
+                    <p class="text-red-600 font-semibold mb-2">Failed to load products</p>
+                    <p class="text-gray-600 mb-4 text-sm">${error.message || 'Network error'}</p>
+                    <button onclick="loadProducts()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Try Again</button>
+                </div>
+            `;
         }
     }
 
     // Load opportunities
     async function loadOpportunities() {
+        const grid = document.getElementById('opportunities-grid');
+        if (!grid) {
+            console.warn('⚠️ Opportunities grid not found, skipping load');
+            return;
+        }
+        
+        // Show loading state
+        grid.innerHTML = '<div class="col-span-3 text-center py-12"><div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-green-600"></div><p class="mt-4 text-gray-600">Loading opportunities...</p></div>';
+        
         try {
-            const res = await fetch(`${API_URL}/opportunities`);
+            const apiUrl = `${API_URL}/opportunities`;
+            console.log('💼 Fetching opportunities from:', apiUrl);
+            
+            const res = await fetch(apiUrl, {
+                method: 'GET',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                credentials: 'include',
+                mode: 'cors'
+            });
+            
+            console.log('📡 Opportunities response status:', res.status, res.statusText);
+            
+            if (!res.ok) {
+                const errorText = await res.text();
+                console.error('❌ Opportunities API error:', errorText);
+                throw new Error(`HTTP error! status: ${res.status} - ${errorText}`);
+            }
+            
             const data = await res.json();
-            const grid = document.getElementById('opportunities-grid');
-            grid.innerHTML = data.opportunities.map(o => `
-                <div class="bg-white p-6 rounded-lg shadow product-card">
-                    <h3 class="text-xl font-bold mb-2">${o.title}</h3>
-                    <p class="text-gray-600 mb-2">${o.description}</p>
-                    <span class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">${o.type}</span>
-                </div>
-            `).join('');
+            console.log('✅ Opportunities data received:', data);
+            
+            if (data.opportunities && data.opportunities.length > 0) {
+                grid.innerHTML = data.opportunities.map(o => `
+                    <div class="bg-white p-6 rounded-lg shadow product-card cursor-pointer hover:shadow-xl transition-shadow">
+                        ${o.image ? `<img src="${o.image}" alt="${o.title}" class="w-full h-48 object-cover rounded-lg mb-4">` : '<div class="w-full h-48 bg-gradient-to-br from-green-500 to-blue-500 rounded-lg mb-4 flex items-center justify-center"><i class="fas fa-briefcase text-white text-6xl opacity-50"></i></div>'}
+                        <h3 class="text-xl font-bold mb-2">${o.title}</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">${o.description || ''}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-semibold">${o.type || 'Opportunity'}</span>
+                            ${o.isActive ? '<span class="px-3 py-1 bg-green-500 text-white rounded-full text-xs font-semibold">Active</span>' : '<span class="px-3 py-1 bg-gray-300 text-gray-700 rounded-full text-xs font-semibold">Inactive</span>'}
+                        </div>
+                    </div>
+                `).join('');
+            } else {
+                grid.innerHTML = `
+                    <div class="col-span-3 text-center py-12">
+                        <i class="fas fa-briefcase text-gray-300 text-6xl mb-4"></i>
+                        <p class="text-gray-600 text-lg mb-2">No opportunities available yet</p>
+                        <p class="text-gray-500">Check back soon for new opportunities!</p>
+                    </div>
+                `;
+            }
         } catch (error) {
-            console.error('Load opportunities error:', error);
+            console.error('❌ Load opportunities error:', error);
+            grid.innerHTML = `
+                <div class="col-span-3 text-center py-12">
+                    <i class="fas fa-exclamation-triangle text-red-400 text-5xl mb-4"></i>
+                    <p class="text-red-600 font-semibold mb-2">Failed to load opportunities</p>
+                    <p class="text-gray-600 mb-4 text-sm">${error.message || 'Network error'}</p>
+                    <button onclick="loadOpportunities()" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">Try Again</button>
+                </div>
+            `;
         }
     }
 
@@ -382,11 +1001,507 @@
         }
     }
 
+    // Load Blog Posts
+    async function loadBlogPosts() {
+        const grid = document.getElementById('blog-grid');
+        if (!grid) return;
+        
+        // Show loading state
+        grid.innerHTML = '<div class="col-span-3 text-center py-12"><div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div><p class="mt-4 text-gray-600">Loading posts...</p></div>';
+        
+        try {
+            // First, test if the API is reachable
+            const apiUrl = `${API_URL}/posts`;
+            console.log('🔍 Fetching posts from:', apiUrl);
+            console.log('🔍 Full URL would be:', window.location.origin + apiUrl);
+            
+            // Test connectivity first
+            try {
+                const healthCheck = await fetch(`${API_URL}/health`, { method: 'GET' });
+                console.log('✅ Health check:', healthCheck.status);
+            } catch (healthError) {
+                console.warn('⚠️ Health check failed, but continuing:', healthError);
+            }
+            
+            const res = await fetch(apiUrl, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                credentials: 'include',
+                mode: 'cors'
+            });
+            
+            console.log('📡 Response status:', res.status, res.statusText);
+            console.log('📡 Response headers:', [...res.headers.entries()]);
+            
+            if (!res.ok) {
+                const errorText = await res.text();
+                console.error('❌ Error response:', errorText);
+                throw new Error(`HTTP error! status: ${res.status} - ${errorText}`);
+            }
+            const data = await res.json();
+            console.log('✅ Posts data received:', data);
+            
+            if (data.posts && data.posts.length > 0) {
+                grid.innerHTML = data.posts.map(post => {
+                    const excerpt = post.excerpt || post.content.substring(0, 150).replace(/#/g, '').trim() + '...';
+                    const date = new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                    return `
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden product-card cursor-pointer hover:shadow-xl transition-shadow" onclick="viewPost('${post.slug}')">
+                        ${post.featuredImage ? `<img src="${post.featuredImage}" alt="${post.title}" class="w-full h-48 object-cover">` : '<div class="w-full h-48 bg-gradient-to-br from-blue-500 to-green-500 flex items-center justify-center"><i class="fas fa-newspaper text-white text-6xl opacity-50"></i></div>'}
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                ${post.category ? `<span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-semibold rounded-full">${post.category}</span>` : ''}
+                                <span class="text-gray-500 text-sm"><i class="far fa-calendar"></i> ${date}</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-3 text-gray-800 hover:text-blue-600 transition-colors">${post.title}</h3>
+                            <p class="text-gray-600 mb-4 line-clamp-3">${excerpt}</p>
+                            <div class="flex items-center justify-between pt-4 border-t">
+                                <div class="flex items-center gap-2">
+                                    ${post.author ? `<img src="${post.author.profileImage || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(post.author.firstName + ' ' + post.author.lastName)}" alt="${post.author.firstName}" class="w-8 h-8 rounded-full">` : ''}
+                                    ${post.author ? `<span class="text-sm text-gray-600 font-medium">${post.author.firstName} ${post.author.lastName}</span>` : ''}
+                                </div>
+                                <div class="flex items-center gap-4 text-sm text-gray-500">
+                                    <span><i class="fas fa-eye"></i> ${post.views || 0}</span>
+                                    ${post.tags && post.tags.length > 0 ? `<span><i class="fas fa-tags"></i> ${post.tags.length}</span>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                }).join('');
+            } else {
+                grid.innerHTML = `
+                    <div class="col-span-3 text-center py-12">
+                        <i class="fas fa-newspaper text-gray-300 text-6xl mb-4"></i>
+                        <p class="text-gray-600 text-lg mb-2">No blog posts yet</p>
+                        <p class="text-gray-500 mb-6">Be the first to create one!</p>
+                        ${token ? '<a href="#create-post" onclick="navigate(\'create-post\')" class="inline-block px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold">Create Your First Post</a>' : '<a href="#login" onclick="navigate(\'login\')" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-semibold">Sign In to Create Posts</a>'}
+                    </div>
+                `;
+            }
+        } catch (error) {
+            console.error('Load blog posts error:', error);
+            console.error('Error details:', {
+                message: error.message,
+                stack: error.stack,
+                API_URL: API_URL,
+                fullURL: `${API_URL}/posts`
+            });
+            grid.innerHTML = `
+                <div class="col-span-3 text-center py-12">
+                    <i class="fas fa-exclamation-triangle text-red-400 text-5xl mb-4"></i>
+                    <p class="text-red-600 font-semibold mb-2">Failed to load posts</p>
+                    <p class="text-gray-600 mb-4 text-sm">${error.message || 'Network error. Please check your connection and try again.'}</p>
+                    <p class="text-gray-500 mb-4 text-xs">API URL: ${API_URL}/posts</p>
+                    <button onclick="loadBlogPosts()" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Try Again</button>
+                </div>
+            `;
+        }
+    }
+    
+    // View Single Post
+    async function viewPost(slug) {
+        try {
+            const res = await fetch(`${API_URL}/posts/${slug}`);
+            const data = await res.json();
+            
+            if (res.ok) {
+                const postContent = document.getElementById('post-content');
+                const shareButtons = document.getElementById('social-share-buttons');
+                const commentsList = document.getElementById('comments-list');
+                const commentForm = document.getElementById('comment-form-container');
+                
+                // Format content (basic markdown-like rendering)
+                const formatContent = (content) => {
+                    return content
+                        .replace(/^# (.*$)/gim, '<h1 class="text-3xl font-bold mt-8 mb-4 text-gray-800">$1</h1>')
+                        .replace(/^## (.*$)/gim, '<h2 class="text-2xl font-bold mt-6 mb-3 text-gray-800">$1</h2>')
+                        .replace(/^### (.*$)/gim, '<h3 class="text-xl font-bold mt-4 mb-2 text-gray-800">$1</h3>')
+                        .replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold">$1</strong>')
+                        .replace(/\*(.*?)\*/g, '<em class="italic">$1</em>')
+                        .replace(/\n\n/g, '</p><p class="mb-4 text-gray-700 leading-relaxed">')
+                        .replace(/\n/g, '<br>');
+                };
+                
+                const formattedContent = formatContent(data.content);
+                const date = new Date(data.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                
+                // Display post
+                postContent.innerHTML = `
+                    ${data.featuredImage ? `<img src="${data.featuredImage}" alt="${data.title}" class="w-full h-96 object-cover rounded-t-lg">` : '<div class="w-full h-64 bg-gradient-to-r from-blue-500 to-green-500"></div>'}
+                    <div class="p-8">
+                        <div class="flex items-center gap-4 mb-6 flex-wrap">
+                            ${data.category ? `<span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full font-semibold text-sm">${data.category}</span>` : ''}
+                            <span class="text-gray-500 flex items-center gap-1"><i class="far fa-calendar"></i> ${date}</span>
+                            <span class="text-gray-500 flex items-center gap-1"><i class="fas fa-eye"></i> ${data.views || 0} views</span>
+                        </div>
+                        <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-gray-900 leading-tight">${data.title}</h1>
+                        ${data.author ? `
+                            <div class="flex items-center gap-3 mb-8 pb-6 border-b">
+                                ${data.author.profileImage ? `<img src="${data.author.profileImage}" alt="${data.author.firstName}" class="w-12 h-12 rounded-full">` : `<div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">${data.author.firstName[0]}${data.author.lastName[0]}</div>`}
+                                <div>
+                                    <p class="font-semibold text-gray-800">${data.author.firstName} ${data.author.lastName}</p>
+                                    ${data.author.bio ? `<p class="text-sm text-gray-600">${data.author.bio}</p>` : ''}
+                                </div>
+                            </div>
+                        ` : ''}
+                        <div class="prose prose-lg max-w-none">
+                            <p class="mb-4 text-gray-700 leading-relaxed">${formattedContent}</p>
+                        </div>
+                        ${data.tags && data.tags.length > 0 ? `
+                            <div class="mt-8 pt-6 border-t">
+                                <p class="text-sm font-semibold text-gray-600 mb-3">Tags:</p>
+                                <div class="flex flex-wrap gap-2">
+                                    ${data.tags.map(tag => `<span class="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm hover:bg-gray-200 cursor-pointer">#${tag}</span>`).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+                
+                // Social sharing buttons
+                const postUrl = window.location.origin + window.location.pathname + '#single-post';
+                const shareText = encodeURIComponent(data.title);
+                shareButtons.innerHTML = `
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}" target="_blank" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text=${shareText}&url=${encodeURIComponent(postUrl)}" target="_blank" class="px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}" target="_blank" class="px-4 py-2 bg-blue-800 text-white rounded-lg hover:bg-blue-900">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://wa.me/?text=${shareText}%20${encodeURIComponent(postUrl)}" target="_blank" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                    </a>
+                `;
+                
+                // Display comments
+                if (data.comments && data.comments.length > 0) {
+                    commentsList.innerHTML = data.comments.map(comment => `
+                        <div class="border-b pb-4 mb-4">
+                            <div class="flex items-center gap-2 mb-2">
+                                ${comment.author ? `<strong>${comment.author.firstName} ${comment.author.lastName}</strong>` : 'Anonymous'}
+                                <span class="text-gray-500 text-sm">${new Date(comment.createdAt).toLocaleDateString()}</span>
+                            </div>
+                            <p class="text-gray-700">${comment.content}</p>
+                        </div>
+                    `).join('');
+                } else {
+                    commentsList.innerHTML = '<p class="text-gray-600">No comments yet. Be the first to comment!</p>';
+                }
+                
+                // Comment form
+                if (token) {
+                    commentForm.innerHTML = `
+                        <form onsubmit="submitComment(event, '${data.id}')">
+                            <textarea id="comment-content" required rows="4" placeholder="Write your comment..." class="w-full px-4 py-2 border rounded-lg mb-2"></textarea>
+                            <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">Post Comment</button>
+                        </form>
+                    `;
+                } else {
+                    commentForm.innerHTML = '<p class="text-gray-600">Please <a href="#login" onclick="navigate(\'login\')" class="text-blue-600">sign in</a> to leave a comment.</p>';
+                }
+                
+                navigate('single-post');
+            } else {
+                alert('Post not found');
+            }
+        } catch (error) {
+            console.error('View post error:', error);
+            alert('Error loading post');
+        }
+    }
+    
+    // Submit Comment
+    async function submitComment(event, postId) {
+        event.preventDefault();
+        if (!token) {
+            alert('Please sign in to comment');
+            navigate('login');
+            return;
+        }
+        
+        const content = document.getElementById('comment-content').value;
+        try {
+            const res = await fetch(`${API_URL}/posts/${postId}/comments`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ content })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                alert('✅ Comment submitted! It will be reviewed before publishing.');
+                document.getElementById('comment-content').value = '';
+                // Reload post to show new comment
+                const postSlug = document.querySelector('#post-content h1')?.textContent;
+                if (postSlug) {
+                    // We need to get the slug from the current post
+                    location.reload();
+                }
+            } else {
+                alert('❌ ' + (data.error || 'Failed to submit comment'));
+            }
+        } catch (error) {
+            console.error('Submit comment error:', error);
+            alert('Error submitting comment');
+        }
+    }
+    
+    // Save Post (Create or Update)
+    async function savePost(event) {
+        event.preventDefault();
+        if (!token) {
+            alert('Please sign in first');
+            navigate('login');
+            return;
+        }
+        
+        const postData = {
+            title: document.getElementById('post-title').value,
+            excerpt: document.getElementById('post-excerpt').value,
+            content: document.getElementById('post-content-editor').value,
+            category: document.getElementById('post-category').value || 'general',
+            tags: document.getElementById('post-tags').value.split(',').map(t => t.trim()).filter(t => t),
+            isPublished: document.getElementById('post-published').checked
+        };
+        
+        const postId = document.getElementById('post-id').value;
+        const url = postId ? `${API_URL}/posts/${postId}` : `${API_URL}/posts`;
+        const method = postId ? 'PUT' : 'POST';
+        
+        try {
+            const res = await fetch(url, {
+                method,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(postData)
+            });
+            const data = await res.json();
+            if (res.ok) {
+                const savedPostId = data.post.id;
+                
+                // Upload image if one was selected
+                if (window.pendingImageFile && savedPostId) {
+                    const formData = new FormData();
+                    formData.append('image', window.pendingImageFile);
+                    
+                    try {
+                        const imgRes = await fetch(`${API_URL}/posts/${savedPostId}/image`, {
+                            method: 'POST',
+                            headers: {
+                                'Authorization': `Bearer ${token}`
+                            },
+                            body: formData
+                        });
+                        const imgData = await imgRes.json();
+                        if (imgRes.ok && imgData.imageUrl) {
+                            document.getElementById('image-status').textContent = 'Image uploaded successfully!';
+                        }
+                    } catch (imgError) {
+                        console.error('Image upload error:', imgError);
+                    }
+                    window.pendingImageFile = null;
+                }
+                
+                alert('✅ Post saved successfully!');
+                // Clear form
+                document.getElementById('post-form').reset();
+                document.getElementById('post-id').value = '';
+                document.getElementById('image-preview').classList.add('hidden');
+                editingPostId = null;
+                navigate('blog');
+            } else {
+                alert('❌ ' + (data.error || 'Failed to save post'));
+            }
+        } catch (error) {
+            console.error('Save post error:', error);
+            alert('Error saving post');
+        }
+    }
+    
+    // Handle Image Upload
+    async function handleImageUpload(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        
+        // Show preview immediately
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            document.getElementById('preview-img').src = e.target.result;
+            document.getElementById('image-preview').classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+        
+        // Store file for upload after post is saved
+        window.pendingImageFile = file;
+        document.getElementById('image-status').textContent = 'Image selected. Will upload when post is saved.';
+    }
+    
+    // Subscribe
+    async function subscribe(event) {
+        event.preventDefault();
+        const email = document.getElementById('subscriber-email').value;
+        try {
+            const res = await fetch(`${API_URL}/subscribers`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                alert('✅ Successfully subscribed!');
+                document.getElementById('subscriber-email').value = '';
+            } else {
+                alert('❌ ' + (data.error || 'Failed to subscribe'));
+            }
+        } catch (error) {
+            console.error('Subscribe error:', error);
+            alert('Error subscribing');
+        }
+    }
+    
+    // Load Dashboard Stats
+    async function loadDashboardStats() {
+        if (!token) return;
+        try {
+            // Load posts count
+            const postsRes = await fetch(`${API_URL}/posts/all`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (postsRes.ok) {
+                const postsData = await postsRes.json();
+                document.getElementById('total-posts').textContent = postsData.pagination?.total || 0;
+            }
+            
+            // Load subscribers count (admin only)
+            if (currentUser && currentUser.role === 'admin') {
+                const subRes = await fetch(`${API_URL}/subscribers/count`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (subRes.ok) {
+                    const subData = await subRes.json();
+                    document.getElementById('total-subscribers').textContent = subData.active || 0;
+                }
+            }
+        } catch (error) {
+            console.error('Load dashboard stats error:', error);
+        }
+    }
+    
     // Load token on page load
+    // Handle OAuth callback
+    window.addEventListener('load', () => {
+        // Check for OAuth callback in URL
+        const urlParams = new URLSearchParams(window.location.hash.substring(1));
+        const oauthToken = urlParams.get('token');
+        const oauthEmail = urlParams.get('email');
+        const oauthProvider = urlParams.get('oauth');
+        
+        if (oauthToken && oauthEmail) {
+            // OAuth login successful
+            token = oauthToken;
+            localStorage.setItem('token', token);
+            
+            // Fetch user profile
+            fetch(`${API_URL}/auth/profile`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => res.json())
+            .then(data => {
+                currentUser = data;
+                updateUserMenu();
+                navigate('home');
+                alert(`✅ Signed in successfully with ${oauthProvider || 'OAuth'}!`);
+                // Clean URL
+                window.location.hash = '#home';
+            })
+            .catch(error => {
+                console.error('OAuth profile fetch error:', error);
+                alert('Signed in, but failed to load profile. Please refresh.');
+            });
+        }
+        
+        // Check for existing token
+        const savedToken = localStorage.getItem('token');
+        if (savedToken) {
+            token = savedToken;
+            fetch(`${API_URL}/auth/profile`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => {
+                if (res.ok) return res.json();
+                throw new Error('Invalid token');
+            })
+            .then(data => {
+                currentUser = data;
+                updateUserMenu();
+            })
+            .catch(() => {
+                localStorage.removeItem('token');
+                token = null;
+            });
+        }
+    });
+    
     window.addEventListener('load', () => {
         token = localStorage.getItem('token');
-        loadProducts();
-        loadOpportunities();
+        if (token) {
+            // Try to get user profile
+            fetch(`${API_URL}/auth/profile`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.id) {
+                    currentUser = data;
+                    updateUserMenu();
+                    loadDashboardStats();
+                }
+            })
+            .catch(() => {
+                localStorage.removeItem('token');
+                token = null;
+            });
+        }
+        // Only load if pages are visible (avoid errors on initial load)
+        if (document.getElementById('products-grid')) {
+            loadProducts();
+        }
+        if (document.getElementById('opportunities-grid')) {
+            loadOpportunities();
+        }
+        if (document.getElementById('blog-grid')) {
+            loadBlogPosts();
+        }
+
+        // Auto-format verification code input
+        const codeInput = document.getElementById('verification-code');
+        if (codeInput) {
+            codeInput.addEventListener('input', function(e) {
+                // Only allow numbers
+                e.target.value = e.target.value.replace(/\D/g, '');
+                // Limit to 6 digits
+                if (e.target.value.length > 6) {
+                    e.target.value = e.target.value.slice(0, 6);
+                }
+            });
+
+            // Auto-submit when 6 digits entered
+            codeInput.addEventListener('keyup', function(e) {
+                if (e.target.value.length === 6 && e.key !== 'Backspace') {
+                    verifyCode();
+                }
+            });
+        }
     });
 </script>
 

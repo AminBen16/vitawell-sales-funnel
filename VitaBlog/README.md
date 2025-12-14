@@ -10,56 +10,102 @@ VitaBlog is a professional, SEO-optimized blog and CMS platform for posting well
 - **Security:** Helmet, CORS, Rate Limiting
 - **File Uploads:** Multer for product/opportunity images
 
-## Features
+## ✨ Features
+
+### Blog Management
+✅ **Create & Edit Posts** - Rich content editor with markdown support  
+✅ **Image Uploads** - Upload featured images for posts  
+✅ **Categories & Tags** - Organize content effectively  
+✅ **Draft/Published** - Control when posts go live  
+✅ **View Tracking** - See how many views each post gets  
+
+### User Engagement
+✅ **Comments System** - Users can comment (requires approval)  
+✅ **Subscriber Management** - Email subscription system  
+✅ **Social Sharing** - Share posts on Facebook, Twitter, LinkedIn, WhatsApp  
+
+### Content Management
 ✅ **Product Management** - Create, edit, publish products with JSONB specifications  
 ✅ **Opportunity Posting** - Post income opportunities with benefits and earnings info  
-✅ **User Authentication** - Email-based login via VitaWell appointments or standard registration  
+✅ **Admin Dashboard** - Analytics, content management, user management  
+
+### Security & Performance
+✅ **User Authentication** - JWT-based auth with email/password or VitaWell appointments  
 ✅ **Role-Based Access** - Admin, Author, Viewer roles with permission controls  
 ✅ **Comment Moderation** - Comments require approval before publishing  
 ✅ **SEO Optimized** - Rich meta tags, schema markup, canonical URLs, structured data  
-✅ **Admin Dashboard** - Analytics, content management, user management  
 ✅ **Rate Limiting** - Protection against abuse (100 requests per 15 minutes)  
 
-## Installation
+## 🚀 Quick Start (3 Steps)
 
-### Prerequisites
-- Node.js 14+
-- PostgreSQL 12+
-- npm or yarn
-
-### Backend Setup
+### Step 1: Install Dependencies
 ```bash
 cd VitaBlog
 npm install
 ```
 
+### Step 2: Setup (Interactive)
+```bash
+npm run setup
+```
+
+This will:
+- Create `.env` file interactively
+- Set up database tables
+- Seed sample data (posts, users, products)
+
+**OR** run manually:
+```bash
+npm run init        # Interactive setup
+npm run db:migrate  # Create database tables  
+npm run db:seed     # Add sample data
+```
+
+### Step 3: Start Server
+```bash
+npm run server:dev
+```
+
+Open **http://localhost:5001** in your browser! 🎉
+
+### Verify Setup
+```bash
+npm run verify      # Check if everything is configured correctly
+```
+
+---
+
+## 📋 What You Get
+
+### Sample Accounts (after seeding)
+- **Admin**: `admin@vitablog.co` / `admin123`
+- **Author**: `author@vitablog.co` / `author123`
+
+### Sample Content Included
+- ✅ 3 blog posts ready to view
+- ✅ 3 products
+- ✅ 2 opportunities  
+- ✅ Sample subscribers
+
+---
+
+## 🗄️ Database Setup Options
+
+### Option A: Docker (Recommended - Easiest)
+```bash
+docker-compose up -d
+npm run db:migrate
+npm run db:seed
+```
+
+### Option B: Local PostgreSQL
+1. Install PostgreSQL
+2. Create database: `createdb vitablog`
+3. Run: `npm run init` (or manually create `.env`)
+4. Run: `npm run db:migrate && npm run db:seed`
+
 ### Environment Configuration
-Create a `.env` file in the root:
-```
-NODE_ENV=development
-PORT=5000
-DB_NAME=vitablog
-DB_USER=postgres
-DB_PASSWORD=your_password
-DB_HOST=localhost
-DB_PORT=5432
-JWT_SECRET=your-secret-key-here
-CLIENT_URL=http://localhost:3000
-```
-
-### Database Setup
-```bash
-npm run db:migrate    # Run migrations
-npm run db:seed       # Seed sample data
-```
-
-### Start Development Server
-```bash
-npm run dev            # Runs backend + frontend concurrently
-# Or individually:
-npm run server:dev     # Backend only
-npm run client:dev     # Frontend only (if using React)
-```
+The `npm run init` command will create a `.env` file interactively, or you can copy `.env.example` and update it manually.
 
 ## API Documentation
 

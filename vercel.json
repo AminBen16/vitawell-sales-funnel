@@ -19,14 +19,6 @@
       "use": "@vercel/static"
     },
     {
-      "src": "blog-frontend-optimized.html",
-      "use": "@vercel/static"
-    },
-    {
-      "src": "blog-frontend.html",
-      "use": "@vercel/static"
-    },
-    {
       "src": "styles.css",
       "use": "@vercel/static"
     }
@@ -47,14 +39,6 @@
     {
       "src": "/styles.css",
       "dest": "styles.css"
-    },
-    {
-      "src": "/blog-frontend-optimized.html",
-      "dest": "blog-frontend-optimized.html"
-    },
-    {
-      "src": "/blog-frontend.html",
-      "dest": "blog-frontend.html"
     },
     {
       "src": "/(.*)",

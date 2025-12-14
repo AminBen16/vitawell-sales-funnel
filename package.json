@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "blog": "node blog-server.js",
-    "dev": "concurrently \"npm start\" \"npm run blog\"",
+    "blog:dev": "cd VitaBlog && npm run server:dev",
+    "dev": "concurrently \"npm start\" \"npm run blog:dev\"",
+    "dev:all": "concurrently \"npm start\" \"cd VitaBlog && npm run server:dev\"",
     "build:css": "tailwindcss -i ./styles.css -o ./dist/styles.css",
     "build:css:watch": "tailwindcss -i ./styles.css -o ./dist/styles.css --watch"
   },

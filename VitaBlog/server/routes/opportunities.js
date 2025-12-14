@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
     const { count, rows } = await db.Opportunity.findAndCountAll({
       where,
-      include: [{ model: db.User, attributes: ['firstName', 'lastName', 'profileImage'] }],
+      include: [{ model: db.User, as: 'author', attributes: ['firstName', 'lastName', 'profileImage'] }],
       order: [['createdAt', 'DESC']],
       limit: parseInt(limit),
       offset,

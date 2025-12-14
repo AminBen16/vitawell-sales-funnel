@@ -329,6 +329,13 @@ app.post('/api/oqata-answer', async (req, res) => {
     }
 });
 
+// Proxy route for VitaBlog (optional - for seamless integration)
+app.get('/vitablog*', (req, res) => {
+    // Redirect to VitaBlog server
+    const blogUrl = `http://localhost:5001${req.path.replace('/vitablog', '') || '/'}`;
+    res.redirect(blogUrl);
+});
+
 // Serve the main HTML file
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));

@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
     const { count, rows } = await db.Product.findAndCountAll({
       where,
-      include: [{ model: db.User, attributes: ['firstName', 'lastName', 'profileImage'] }],
+      include: [{ model: db.User, as: 'author', attributes: ['firstName', 'lastName', 'profileImage'] }],
       order: [['createdAt', 'DESC']],
       limit: parseInt(limit),
       offset,
@@ -49,8 +49,8 @@ router.get('/:slug', async (req, res) => {
     const product = await db.Product.findOne({
       where: { slug: req.params.slug },
       include: [
-        { model: db.User, attributes: ['id', 'firstName', 'lastName', 'profileImage', 'bio'] },
-        { model: db.Comment, where: { status: 'approved' }, required: false, include: [{ model: db.User, attributes: ['firstName', 'lastName', 'profileImage'] }] }
+        { model: db.User, as: 'author', attributes: ['id', 'firstName', 'lastName', 'profileImage', 'bio'] },
+        { model: db.Comment, where: { status: 'approved' }, required: false, include: [{ model: db.User, as: 'author', attributes: ['firstName', 'lastName', 'profileImage'] }] }
       ]
     });
 

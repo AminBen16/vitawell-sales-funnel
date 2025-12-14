@@ -23,7 +23,17 @@ module.exports = (sequelize) => {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true // Allow null for OAuth users
+    },
+    oauthProvider: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      comment: 'OAuth provider: google, github, etc.'
+    },
+    oauthId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      comment: 'OAuth provider user ID'
     },
     role: {
       type: DataTypes.ENUM('admin', 'author', 'viewer'),
