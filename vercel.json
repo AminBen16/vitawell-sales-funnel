@@ -2,6 +2,14 @@
   "version": 2,
   "builds": [
     {
+      "src": "server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "blog-server.js",
+      "use": "@vercel/node"
+    },
+    {
       "src": "VitaBlog/server/index.js",
       "use": "@vercel/node",
       "config": { "includeFiles": ["VitaBlog/server/**", "VitaBlog/package.json", "VitaBlog/package-lock.json", "VitaBlog/.env.example"] }
@@ -9,18 +17,58 @@
     {
       "src": "VitaBlog/client/index.html",
       "use": "@vercel/static"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "blog-frontend-optimized.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "blog-frontend.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "styles.css",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/main/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/api/blog/(.*)",
+      "dest": "blog-server.js"
+    },
+    {
+      "src": "/api/vitablog/(.*)",
       "dest": "VitaBlog/server/index.js"
     },
     {
-      "src": "/(.*)",
+      "src": "/vitablog/(.*)",
       "dest": "VitaBlog/client/index.html"
+    },
+    {
+      "src": "/styles.css",
+      "dest": "styles.css"
+    },
+    {
+      "src": "/blog-frontend-optimized.html",
+      "dest": "blog-frontend-optimized.html"
+    },
+    {
+      "src": "/blog-frontend.html",
+      "dest": "blog-frontend.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "index.html"
     }
   ],
-  "installCommand": "npm install --prefix VitaBlog",
-  "buildCommand": "echo 'No frontend build command needed if client directory is pre-built or simple static HTML.'"
+  "installCommand": "npm install && npm install --prefix VitaBlog",
+  "buildCommand": "npm run build:css"
 }
